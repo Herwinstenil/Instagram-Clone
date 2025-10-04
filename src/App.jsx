@@ -2,7 +2,7 @@ import React from 'react'
 
 function App() {
   return (
-    <div>
+    <div className='d-flex'>
       <div>Sidebar</div>
       <div>Feed</div>
       <div>Suggestions</div>
