@@ -2,7 +2,9 @@ import React from 'react'
 
 function Sidebar() {
   return (
-    <div>Sidebar</div>
+    <div>
+      <img className='logo-text' src="src\assets\Instagram_text.png" alt="" />
+    </div>
   )
 }
 
