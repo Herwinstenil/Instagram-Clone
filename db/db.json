@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "user": {
+        "id": 101,
+        "username": "john_doe",
+        "profile_pic": "src/assets/premium_photo-1689977968861-9c91dbb16049.jpg"
+      },
+      "image": "src/assets/travel-to-the-beautiful-colorful-majestic-waterfall.jpg",
+      "caption": "Beautiful sunset 🌅 #Nature",
+      "likes": 120,
+      "comments": [
+        {
+          "user": "alice_wonder",
+          "comment": "Wow! Amazing shot! 📸"
+        },
+        {
+          "user": "mark_92",
+          "comment": "Where is this place?"
+        }
+      ],
+      "timestamp": "2025-02-11T14:30:00Z"
+    },
+    {
+      "id": 2,
+      "user": {
+        "id": 102,
+        "username": "emma_stone",
+        "profile_pic": "src/assets/instagram_profile2.jpg"
+      },
+      "image": "src/assets/instagram_post2.jpg",
+      "caption": "Weekend vibes ✨☕",
+      "likes": 85,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "So peaceful 😍"
+        }
+      ],
+      "timestamp": "2025-02-12T09:45:00Z"
+    }
+  ]
+}
