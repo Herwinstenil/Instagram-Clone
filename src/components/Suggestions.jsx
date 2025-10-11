@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Suggestion() {
+function Suggestions() {
   return (
     <div>Suggestions</div>
   )
 }
 
-export default Suggestion
+export default Suggestions
