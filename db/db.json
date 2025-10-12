@@ -7,7 +7,7 @@
         "username": "john_doe",
         "profile_pic": "src/assets/premium_photo-1689977968861-9c91dbb16049.jpg"
       },
-      "image": "src/assets/travel-to-the-beautiful-colorful-majestic-waterfall.jpg",
+      "image": "src/assets/beautiful waterfall.jpg",
       "caption": "Beautiful sunset 🌅 #Nature",
       "likes": 120,
       "comments": [
@@ -27,7 +27,7 @@
       "user": {
         "id": 102,
         "username": "emma_stone",
-        "profile_pic": "src/assets/instagram_profile2.jpg"
+        "profile_pic": "src/assets/weekend party.jpg"
       },
       "image": "src/assets/instagram_post2.jpg",
       "caption": "Weekend vibes ✨☕",
