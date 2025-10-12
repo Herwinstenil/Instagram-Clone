@@ -47,13 +47,13 @@
         "username": "tony_stark",
         "profile_pic": "src/assets/ironman.jpg"
       },
-      "image": "src/assets/instagram_post2.jpg",
-      "caption": "Weekend vibes ✨☕",
-      "likes": 85,
+      "image": "src/assets/instagram_post3.jpg",
+      "caption": "travelling to the countries ✨☕",
+      "likes": 185,
       "comments": [
         {
           "user": "john_doe",
-          "comment": "So peaceful 😍"
+          "comment": "So enjoyable 😍"
         }
       ],
       "timestamp": "2025-02-12T09:45:00Z"
