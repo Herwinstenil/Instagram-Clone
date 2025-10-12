@@ -41,11 +41,11 @@
       "timestamp": "2025-02-12T09:45:00Z"
     },
      {
-      "id": 2,
+      "id": 3,
       "user": {
-        "id": 102,
-        "username": "emma_stone",
-        "profile_pic": "src/assets/weekend party.jpg"
+        "id": 103,
+        "username": "tony_stark",
+        "profile_pic": "src/assets/ironman.jpg"
       },
       "image": "src/assets/instagram_post2.jpg",
       "caption": "Weekend vibes ✨☕",
