@@ -3,10 +3,10 @@ import React from 'react'
 function Posts() {
 
   const[posts, setPosts] = useState([]);
-  
+
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
+    fetch('http://localhost:3000/posts')
+      .then((data) => data.json())
       .then(data => setPosts(data))
       .catch(error => console.error('Error fetching posts:', error));
   }, []);
