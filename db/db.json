@@ -5,9 +5,9 @@
       "user": {
         "id": 101,
         "username": "steve_rogers",
-        "profile_pic": "src/assets/premium_photo-1689977968861-9c91dbb16049.jpg"
+        "profile_pic": "src/assets/captain america.jpg"
       },
-      "image": "src/assets/beautiful waterfall.jpg",
+      "image": "src/assets/waterfall.jpg",
       "caption": "Beautiful sunset 🌅 #Nature",
       "likes": 120,
       "comments": [
@@ -27,7 +27,7 @@
       "user": {
         "id": 102,
         "username": "bruce_wayne",
-        "profile_pic": "src/assets/weekend party.jpg"
+        "profile_pic": "src/assets/batman.jpg"
       },
       "image": "src/assets/instagram_post2.jpg",
       "caption": "Weekend vibes ✨☕",
