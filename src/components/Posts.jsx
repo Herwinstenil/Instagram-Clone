@@ -13,15 +13,15 @@ function Posts() {
 
   return (
     <div>
-      {posts.length > 0} ? (
-        <div>
-          Posts
-        </div>
-      ) : (
-        <div>
-          Loading posts...
-        </div>
-      )
+        {posts.length > 0 ? (
+            <div>
+              Posts
+            </div>
+        ) : (
+            <div>
+              Loading posts...
+            </div>
+        )}
     </div>
   )
 }
