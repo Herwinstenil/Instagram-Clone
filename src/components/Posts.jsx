@@ -15,7 +15,13 @@ function Posts() {
     <div>
         {posts.length > 0 ? (
             <div>
-              Posts
+              {posts.map((post) => (
+                <div key={post.id}>
+                  <div>
+                    <img src={post.user.profile_pic} alt="" />
+                  </div>
+                </div>
+              ))}
             </div>
         ) : (
             <div>
