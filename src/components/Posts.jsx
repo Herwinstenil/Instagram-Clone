@@ -22,6 +22,11 @@ function Posts() {
                     <h5>{post.user.username}</h5>
                   </div>
                   <img className='post' src={post.image} alt="Post image" />
+                  <div>
+                    <i className="bi bi-heart"></i>
+                    <i className="bi bi-chat"></i>
+                    <i className="bi bi-send"></i>
+                  </div>
                 </div>
               ))}
             </div>
