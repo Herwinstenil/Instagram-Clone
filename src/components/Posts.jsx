@@ -27,6 +27,10 @@ function Posts() {
                     <i className="bi bi-chat"></i>
                     <i className="bi bi-send"></i>
                   </div>
+                  <div>
+                    <b>{post.likes} Likes</b>
+                  </div>
+                  <p>{post.caption}</p>
                 </div>
               ))}
             </div>
