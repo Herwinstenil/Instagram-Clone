@@ -17,9 +17,11 @@ function Posts() {
             <div>
               {posts.map((post) => (
                 <div key={post.id}>
-                  <div>
-                    <img className='dp rounded-circle' src={post.user.profile_pic} alt="" />
+                  <div className='d-flex'>
+                    <img className='dp rounded-circle' src={post.user.profile_pic} alt="Profile pic" />
+                    <h5>{post.user.username}</h5>
                   </div>
+                  <img className='post' src={post.image} alt="Post image" />
                 </div>
               ))}
             </div>
