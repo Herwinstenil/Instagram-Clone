@@ -61,14 +61,14 @@
   ],
   "profile":{
     "id": 201,
-    "username": "natasha_romanoff",
-    "profile_pic": "src/assets/blackwidow.jpg"
+    "username": "son_goku",
+    "profile_pic": "src/assets/goku.jpg"
   },
   "suggestions": [
     {
       "id": 301,
-      "username": "clark_kent",
-      "profile_pic": "src/assets/superman.jpg"
+      "username": "prince_vegeta",
+      "profile_pic": "src/assets/vegeta.jpg"
     },
     {
       "id": 302,
