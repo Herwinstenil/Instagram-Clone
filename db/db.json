@@ -58,5 +58,27 @@
       ],
       "timestamp": "2025-02-12T09:45:00Z"
     }
+  ],
+  "profile":{
+    "id": 201,
+    "username": "natasha_romanoff",
+    "profile_pic": "src/assets/blackwidow.jpg"
+  },
+  "suggestions": [
+    {
+      "id": 301,
+      "username": "clark_kent",
+      "profile_pic": "src/assets/superman.jpg"
+    },
+    {
+      "id": 302,
+      "username": "diana_prince",
+      "profile_pic": "src/assets/wonderwoman.jpg"
+    },
+    {
+      "id": 303,
+      "username": "barry_allen",
+      "profile_pic": "src/assets/flash.jpg"
+    }
   ]
 }
