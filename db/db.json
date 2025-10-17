@@ -79,6 +79,11 @@
       "id": 303,
       "username": "barry_allen",
       "profile_pic": "src/assets/flash.jpg"
+    },
+    {
+      "id": 304,
+      "username": "arthur_curry",
+      "profile_pic": "src/assets/aquaman.jpg"
     }
   ]
 }
