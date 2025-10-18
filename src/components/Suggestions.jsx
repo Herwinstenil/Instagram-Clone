@@ -21,10 +21,13 @@ function Suggestions() {
 
   return (
     <div>
+      {profile ?
       <div className='d-flex'>
         <img className='dp rounded-circle' src={profile.profile_pic} alt="Profile pic" />
-        <h5>{post.user.username}</h5>
+        <h5>{profile.username}</h5>
       </div>
+      : <p>Loading Profile...</p>
+      }
     </div>
   )
 }
