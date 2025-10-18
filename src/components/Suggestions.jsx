@@ -12,17 +12,17 @@ function Suggestions() {
     .then(data => setProfile(data))
     .catch(err => console.log('Error fetching profile:', err))
 
-    fetch('http://localhost:3000/profile')
+    fetch('http://localhost:3000/suggestions')
     .then(data => data.json())
-    .then(data => setProfile(data))
-    .catch(err => console.log('Error fetching profile:', err))
+    .then(data => setSuggestions(data))
+    .catch(err => console.log('Error fetching suggestions:', err))
 
   }, []);  
 
   return (
     <div>
       <div className='d-flex'>
-        <img className='dp rounded-circle' src={post.user.profile_pic} alt="Profile pic" />
+        <img className='dp rounded-circle' src={profile.profile_pic} alt="Profile pic" />
         <h5>{post.user.username}</h5>
       </div>
     </div>
