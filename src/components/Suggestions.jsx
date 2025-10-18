@@ -1,6 +1,9 @@
 import React from 'react'
 
 function Suggestions() {
+
+  const [profile, setProfile] = useState(null);
+
   return (
     <div>
       <div className='d-flex'>
