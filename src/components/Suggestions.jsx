@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Suggestions() {
 
   const [profile, setProfile] = useState(null);
+  const [Suggestions, setSuggestions] = useState([]);
 
   return (
     <div>
