@@ -12,6 +12,11 @@ function Suggestions() {
     .then(data => setProfile(data))
     .catch(err => console.log('Error fetching profile:', err))
 
+    fetch('http://localhost:3000/profile')
+    .then(data => data.json())
+    .then(data => setProfile(data))
+    .catch(err => console.log('Error fetching profile:', err))
+
   }, []);  
 
   return (
