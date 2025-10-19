@@ -21,7 +21,7 @@ function Suggestions() {
 
   return (
     <div>
-      <div className='suggestions'>
+      <div className='suggestions w-75'>
         {profile ?
           <div className='d-flex'>
             <img className='dp rounded-circle' src={profile.profile_pic} alt="Profile pic" />
