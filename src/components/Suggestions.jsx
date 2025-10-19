@@ -26,7 +26,7 @@ function Suggestions() {
           <div className='d-flex'>
             <img className='dp rounded-circle' src={profile.profile_pic} alt="Profile pic" />
             <h5>{profile.username}</h5>
-            <p className='ms-auto'>Switch</p>
+            <small className='ms-auto text-primary'>Switch</small>
           </div>
           : <p>Loading Profile...</p>
         }
