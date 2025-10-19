@@ -10,22 +10,30 @@
     width: 100px;
 }
 
-.bi{
+.bi {
     margin-right: 10px;
 }
 
-.story{
+.story {
     height: 60px;
 }
 
-.dp{
+.dp {
     height: 20px;
     width: 20px; 
     margin-top: 5px;
     margin-right: 5px;
 }
 
-.image{
+.image {
     width: 300px;
     height: 250px;
+}
+
+.suggestions h5 {
+    font-size: 16px;
+}
+
+.suggestions .dp {
+    margin-top: 0px !important;
 }
