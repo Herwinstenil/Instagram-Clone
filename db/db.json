@@ -85,5 +85,65 @@
       "username": "ben_tennyson",
       "profile_pic": "src/assets/ben 10.jpg"
     }
+  ],
+  "story": [
+    {
+      "id": 1,
+      "user": {
+        "id": 101,
+        "username": "steve_rogers",
+        "profile_pic": "src/assets/captain america.jpg"
+      },
+      "image": "src/assets/waterfall.jpg",
+      "caption": "Beautiful falls 🌊🍃 #Nature 🌞",
+      "likes": 120,
+      "comments": [
+        {
+          "user": "alice_wonder",
+          "comment": "Wow! Amazing shot! 📸"
+        },
+        {
+          "user": "mark_92",
+          "comment": "Where is this place?"
+        }
+      ],
+      "timestamp": "2025-02-11T14:30:00Z"
+    },
+    {
+      "id": 2,
+      "user": {
+        "id": 102,
+        "username": "bruce_wayne",
+        "profile_pic": "src/assets/batman.jpg"
+      },
+      "image": "src/assets/batcave.jpg",
+      "caption": "Travelling to my batcave 🦇",
+      "likes": 585,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "So cool i love this cave 😍"
+        }
+      ],
+      "timestamp": "2025-02-12T09:45:00Z"
+    },
+     {
+      "id": 3,
+      "user": {
+        "id": 103,
+        "username": "tony_stark",
+        "profile_pic": "src/assets/ironman.jpg"
+      },
+      "image": "src/assets/partying.jpg",
+      "caption": "Weekend vibes with Thanos 💜😈⚡",
+      "likes": 185,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "So enjoyable with thanos 😍"
+        }
+      ],
+      "timestamp": "2025-02-12T09:45:00Z"
+    }
   ]
 }
