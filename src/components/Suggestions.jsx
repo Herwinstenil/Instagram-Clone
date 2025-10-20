@@ -36,30 +36,20 @@ function Suggestions() {
           <b className='ms-auto'>See All</b>
         </div>
 
-         {posts.length > 0 ? (
+         {Suggestions.length > 0 ? (
             <div>
-              {posts.map((post) => (
-                <div className='my-3' key={post.id}>
+              {Suggestions.map((suggestion) => (
+                <div className='my-3' key={suggestion.id}>
                   <div className='d-flex'>
-                    <img className='dp rounded-circle' src={post.user.profile_pic} alt="Profile pic" />
-                    <h5>{post.user.username}</h5>
+                    <img className='dp rounded-circle' src={suggestion.profile_pic} alt="Profile pic" />
+                    <h5>{suggestion.username}</h5>
                   </div>
-                  <img className='image' src={post.image} alt="Post image" />
-                  <div>
-                    <i className="bi bi-heart"></i>
-                    <i className="bi bi-chat"></i>
-                    <i className="bi bi-send"></i>
-                  </div>
-                  <div>
-                    <b>{post.likes} Likes</b>
-                  </div>
-                  <p>{post.caption}</p>
                 </div>
               ))}
             </div>
         ) : (
             <div>
-              Loading posts...
+              Loading suggestion...
             </div>
         )}
         
