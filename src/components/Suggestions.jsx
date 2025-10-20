@@ -39,10 +39,11 @@ function Suggestions() {
          {Suggestions.length > 0 ? (
             <div>
               {Suggestions.map((suggestion) => (
-                <div className='my-3' key={suggestion.id}>
+                <div key={suggestion.id}>
                   <div className='d-flex'>
                     <img className='dp rounded-circle' src={suggestion.profile_pic} alt="Profile pic" />
                     <h5>{suggestion.username}</h5>
+                    <p className='text-primary ms-auto'>Follow</p>
                   </div>
                 </div>
               ))}
