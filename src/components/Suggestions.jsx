@@ -31,9 +31,9 @@ function Suggestions() {
           : <p>Loading Profile...</p>
         }
 
-        <div>
+        <div className='d-flex'>
           <p>Suggested for you</p>
-          <b>See All</b>
+          <b className='ms-auto'>See All</b>
         </div>
 
       </div>
