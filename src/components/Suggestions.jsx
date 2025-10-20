@@ -30,6 +30,12 @@ function Suggestions() {
           </div>
           : <p>Loading Profile...</p>
         }
+
+        <div>
+          <p>Suggested for you</p>
+          <b>See All</b>
+        </div>
+
       </div>
     </div>
   )
