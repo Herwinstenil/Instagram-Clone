@@ -37,3 +37,13 @@
 .suggestions .dp {
     margin-top: 2px !important;
 }
+
+.gradient-border {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff00ff, #ff6600, #ffcc00);
+}
