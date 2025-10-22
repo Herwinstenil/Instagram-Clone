@@ -47,3 +47,7 @@
     border-radius: 50%;
     background: linear-gradient(45deg, #ff00ff, #ff6600, #ffcc00);
 }
+
+.story-dp {
+    width: 40px;
+} 
