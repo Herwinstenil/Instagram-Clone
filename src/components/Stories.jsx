@@ -13,7 +13,15 @@ function Stories() {
 
   return (
     <div className='story'>
-
+      {stories.length > 0 ? (
+        stories.map((story) => (
+          <div key={story.id}> 
+            <img className='story-dp rounded-circle' src={story.user.profile_pic} alt="Story pic" />
+          </div>
+        ))
+      ) : (
+        <p>Loading Stories...</p>
+      )}
     </div>
   )
 }
