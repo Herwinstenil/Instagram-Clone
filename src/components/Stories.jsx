@@ -15,7 +15,7 @@ function Stories() {
     <div className='story d-flex'>
       {stories.length > 0 ? (
         stories.map((story) => (
-          <div key={story.id}>
+          <div key={story.id} className='mx-1'>
             <div className='gradient-border '>
               <img className='story-dp rounded-circle' src={story.user.profile_pic} alt="Story pic" />
             </div>
