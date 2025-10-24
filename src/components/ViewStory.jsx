@@ -16,7 +16,7 @@ function viewstory() {
 
     return (
         <div>
-            {story? <div>story.user.username</div> : <div>Loading...</div>}
+            {story? <div>{story.user.username}</div> : <div>Loading...</div>}
         </div>
     )
 }
