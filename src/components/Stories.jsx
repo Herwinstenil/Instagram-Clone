@@ -17,7 +17,7 @@ function Stories() {
         stories.map((story) => (
           <div key={story.id}> 
             <img className='story-dp rounded-circle' src={story.user.profile_pic} alt="Story pic" />
-            <p>{ story.user.username }</p>
+            <p className='text-truncate' style={{width:"50px"}}>{ story.user.username }</p>
           </div>
         ))
       ) : (
