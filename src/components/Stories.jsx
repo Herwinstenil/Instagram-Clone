@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 function Stories() {
 
-  const [stories, setStories] = useState([]);
+  const [Stories, setStories] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/story')
@@ -13,8 +13,8 @@ function Stories() {
 
   return (
     <div className='story d-flex'>
-      {stories.length > 0 ? (
-        stories.map((story) => (
+      {Stories.length > 0 ? (
+        Stories.map((story) => (
           <div key={story.id} className='mx-1'>
             <div className='gradient-border '>
               <img className='story-dp rounded-circle' src={story.user.profile_pic} alt="Story pic" />
