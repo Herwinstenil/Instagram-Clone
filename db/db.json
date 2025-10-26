@@ -5,9 +5,9 @@
       "user": {
         "id": 101,
         "username": "steve_rogers",
-        "profile_pic": "src/assets/captain america.jpg"
+        "profile_pic": "/assets/captain america.jpg"
       },
-      "image": "src/assets/waterfall.jpg",
+      "image": "/assets/waterfall.jpg",
       "caption": "Beautiful falls 🌊🍃 #Nature 🌞",
       "likes": 120,
       "comments": [
@@ -27,9 +27,9 @@
       "user": {
         "id": 102,
         "username": "bruce_wayne",
-        "profile_pic": "src/assets/batman.jpg"
+        "profile_pic": "/assets/batman.jpg"
       },
-      "image": "src/assets/batcave.jpg",
+      "image": "/assets/batcave.jpg",
       "caption": "Travelling to my batcave 🦇",
       "likes": 585,
       "comments": [
@@ -45,9 +45,9 @@
       "user": {
         "id": 103,
         "username": "tony_stark",
-        "profile_pic": "src/assets/ironman.jpg"
+        "profile_pic": "/assets/ironman.jpg"
       },
-      "image": "src/assets/partying.jpg",
+      "image": "/assets/partying.jpg",
       "caption": "Weekend vibes with Thanos 💜😈⚡",
       "likes": 185,
       "comments": [
@@ -62,28 +62,28 @@
   "profile":{
     "id": 201,
     "username": "son_goku",
-    "profile_pic": "src/assets/goku.jpg"
+    "profile_pic": "/assets/goku.jpg"
   },
   "suggestions": [
     {
       "id": 301,
       "username": "prince_vegeta",
-      "profile_pic": "src/assets/vegeta.jpg"
+      "profile_pic": "/assets/vegeta.jpg"
     },
     {
       "id": 302,
       "username": "thor",
-      "profile_pic": "src/assets/thor.jpg"
+      "profile_pic": "/assets/thor.jpg"
     },
     {
       "id": 303,
       "username": "T'Challa",
-      "profile_pic": "src/assets/black panther.jpg"
+      "profile_pic": "/assets/black panther.jpg"
     },
     {
       "id": 304,
       "username": "ben_tennyson",
-      "profile_pic": "src/assets/ben 10.jpg"
+      "profile_pic": "/assets/ben 10.jpg"
     }
   ],
   "story": [
@@ -92,27 +92,27 @@
       "user": {
         "id": 101,
         "username": "steve_rogers",
-        "profile_pic": "src/assets/captain america.jpg"
+        "profile_pic": "/assets/captain america.jpg"
       },
-      "image": "src/assets/Captain America Love.jpg"
+      "image": "/assets/Captain America Love.jpg"
     },
     {
       "id": 2,
       "user": {
         "id": 102,
         "username": "bruce_wayne",
-        "profile_pic": "src/assets/batman.jpg"
+        "profile_pic": "/assets/batman.jpg"
       },
-      "image": "src/assets/joker.jpg"
+      "image": "/assets/joker.jpg"
     },
      {
       "id": 3,
       "user": {
         "id": 103,
         "username": "tony_stark",
-        "profile_pic": "src/assets/ironman.jpg"
+        "profile_pic": "/assets/ironman.jpg"
       },
-      "image": "src/assets/last time.jpg"
+      "image": "/assets/last time.jpg"
     }
   ]
 }
