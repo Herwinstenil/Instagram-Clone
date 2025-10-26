@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-function viewstory() {
+function ViewStory() {
 
     const { id } = useParams();
 
@@ -19,9 +19,10 @@ function viewstory() {
             {story ? <div>
                 <img src={story.image} alt="story" />
             </div> :
+
                 <div>Loading...</div>}
         </div>
     )
 }
 
-export default viewstory
+export default ViewStory

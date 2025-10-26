@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from './components/Sidebar'
-import Feed from './components/feed'
+import Feed from './components/Feed'
 import Suggestions from './components/Suggestions'
 
 function App() {

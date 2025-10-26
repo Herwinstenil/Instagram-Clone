@@ -5,8 +5,8 @@ import Posts from './Posts'
 function Feed() {
   return (
     <div>
-        <div><Stories/></div>
-        <div><Posts/></div>
+      <div><Stories /></div>
+      <div><Posts /></div>
     </div>
   )
 }
