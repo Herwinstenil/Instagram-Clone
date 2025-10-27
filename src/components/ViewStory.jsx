@@ -17,7 +17,7 @@ function ViewStory() {
     return (
         <div>
             {story ? <div>
-                <img src={story.image} alt="story" />
+                <img className='vh-100' src={story.image} alt="story" />
             </div> :
 
                 <div>Loading...</div>}
