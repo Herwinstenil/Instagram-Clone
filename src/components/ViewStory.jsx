@@ -16,7 +16,7 @@ function ViewStory() {
 
     return (
         <div>
-            {story ? <div>
+            {story ? <div className='d-flex justify-content-center'>
                 <img className='vh-100' src={story.image} alt="story" />
             </div> :
 
