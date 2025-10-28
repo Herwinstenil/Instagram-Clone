@@ -16,7 +16,7 @@ function ViewStory() {
 
     return (
         <div>
-            {story ? <div className='d-flex justify-content-center'>
+            {story ? <div className='d-flex justify-content-center align-items-center'>
                 <Link><i class="bi bi-arrow-left-circle-fill"></i></Link>
                 <img className='vh-100' src={story.image} alt="story" />
             </div> :
