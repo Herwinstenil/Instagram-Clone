@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 function ViewStory() {
 
@@ -17,6 +17,7 @@ function ViewStory() {
     return (
         <div>
             {story ? <div className='d-flex justify-content-center'>
+                <Link><i class="bi bi-arrow-left-circle-fill"></i></Link>
                 <img className='vh-100' src={story.image} alt="story" />
             </div> :
 
