@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 
 function ViewStory() {
 
@@ -7,12 +7,18 @@ function ViewStory() {
 
     const [story, setStory] = useState(null);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         fetch(`http://localhost:3000/story/${id}`)
             .then(data => data.json())
             .then(data => setStory(data))
             .catch(err => console.log('Error fetching story:', err));
     }, [id]);
+
+    if (id <= 0 || id > tot) {
+        navigate('/');
+    }
 
     return (
         <div>
