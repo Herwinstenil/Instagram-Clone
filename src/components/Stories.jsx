@@ -18,10 +18,12 @@ function Stories() {
 
   return (
     <div className='story d-flex'>
-      {tot = Stories.length}
+      <div className='d-none'>
+        {tot = Stories.length}
+      </div>
       {Stories.length > 0 ? (
         Stories.map((story) => (
-          <div key={story.id} className='mx-1' onClick={()=>{navigate(`http://localhost:5173/story/${story.id}/${tot}`)}}>
+          <div key={story.id} className='mx-1' onClick={()=>{navigate(`/story/${story.id}/${tot}`)}}>
             <div className='gradient-border '>
               <img className='story-dp rounded-circle' src={story.user.profile_pic} alt="Story pic" />
             </div>
