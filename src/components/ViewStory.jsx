@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 function ViewStory() {
 
@@ -17,9 +17,9 @@ function ViewStory() {
     return (
         <div>
             {story ? <div className='d-flex justify-content-center align-items-center'>
-                <Link><i class="bi bi-arrow-left-circle-fill"></i></Link>
+                <Link to ={`http://localhost:5173/story/${Number(id)-1}`}><i class="bi bi-arrow-left-circle-fill"></i></Link>
                 <img className='vh-100' src={story.image} alt="story" />
-                 <Link><i class="bi bi-arrow-right-circle-fill"></i></Link>
+                <Link to ={`http://localhost:5173/story/${Number(id)+1}`}><i class="bi bi-arrow-right-circle-fill"></i></Link>
             </div> :
 
                 <div>Loading...</div>}
