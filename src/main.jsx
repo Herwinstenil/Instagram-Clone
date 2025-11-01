@@ -3,6 +3,7 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ViewStory from './components/ViewStory.jsx'
+import Profile from './components/Profile.jsx'
 
 const router = createBrowserRouter(
   [
