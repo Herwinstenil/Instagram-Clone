@@ -53,3 +53,8 @@
     width: 40px;
     height: 40px;
 } 
+
+.story-image {
+    border-radius: 10px;
+    width: 75vh;
+}
