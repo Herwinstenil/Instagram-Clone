@@ -13,6 +13,10 @@ const router = createBrowserRouter(
     {
       path: '/story/:id/:tot',
       element: <ViewStory />
+    },
+    {
+      path: '/profile',
+      element: <Profile />
     }
   ]
 )
