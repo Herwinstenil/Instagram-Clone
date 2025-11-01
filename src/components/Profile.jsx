@@ -8,11 +8,20 @@ function Profile() {
 
     useEffect(() => {
         axios.get('http://localhost:3000/profile')
-        .then(data => { setProfile(data.data); console.log(data.data)})
+            .then(data => { setProfile(data.data); console.log(data.data) })
     }, [])
 
     return (
-        <div>Profile</div>
+        <div>
+            {profile ? (
+                <div>
+                    <img className='profile rounded-circle' src={profile.profile_pic} alt="Profile Pic" />
+                    <h5>{profile.username}</h5>
+                </div>
+            ) : (
+                <div>Loading Profile...</div>
+            )}
+        </div>
     )
 }
 
