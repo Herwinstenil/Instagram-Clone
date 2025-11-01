@@ -1,9 +1,19 @@
 import React from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react';
 
 function Profile() {
-  return (
-    <div>Profile</div>
-  )
+
+    const [profile, setProfile] = useState(null);
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/profile')
+        .then(data => { setProfile(data.data); console.log(data.data)})
+    }, [])
+
+    return (
+        <div>Profile</div>
+    )
 }
 
 export default Profile
