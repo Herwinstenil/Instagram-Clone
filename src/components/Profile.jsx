@@ -21,12 +21,18 @@ function Profile() {
                     <input type="text"
                         value={profile.username}
                         name='username'
+                        className='form-control my-4'
                     />
 
                     <input type="text"
                         value={profile.profile_pic}
                         name='profile_pic'
+                        className='form-control'
                     />
+                    <button className='btn btn-primary mt-3'>
+                        Update Profile
+                    </button>
+                    
                 </div>
             ) : (
                 <div>Loading Profile...</div>
