@@ -18,12 +18,12 @@ function Profile() {
                     <img className='profile rounded-circle' src={profile.profile_pic} alt="Profile Pic" />
                     <h5>{profile.username}</h5>
 
-                    <input type="text" 
+                    <input type="text"
                         value={profile.username}
                         name='username'
                     />
 
-                    <input type="text" 
+                    <input type="text"
                         value={profile.profile_pic}
                         name='profile_pic'
                     />
