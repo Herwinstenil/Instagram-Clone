@@ -12,7 +12,7 @@ function Profile() {
     }, [])
 
     return (
-        <div>
+        <div className='m-5'>
             {profile ? (
                 <div>
                     <img className='profile rounded-circle' src={profile.profile_pic} alt="Profile Pic" />
