@@ -19,7 +19,7 @@ function Profile() {
     }
 
     const handleUpdate = async () => {
-        axios.post('http://localhost:3000/profile', profile)
+        axios.put('http://localhost:3000/profile', profile)
         .then(console.log("Updated"))
         .catch(err => console.log(err))
     }
@@ -44,7 +44,9 @@ function Profile() {
                         className='form-control'
                         onChange={HandleOnChange}
                     />
-                    <button className='btn btn-primary mt-3'>
+                    <button className='btn btn-primary mt-3'
+                        onClick={handleUpdate}
+                        >
                         Update Profile
                     </button>
 
