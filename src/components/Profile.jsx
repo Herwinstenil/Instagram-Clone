@@ -21,6 +21,8 @@ function Profile() {
     const handleUpdate = async () => {
         axios.post('http://localhost:3000/profile', profile)
         .then(console.log("Updated"))
+        .catch(err => console.log(err))
+    }
 
     return (
         <div className='m-5'>
