@@ -18,6 +18,8 @@ function Profile() {
         }));
     }
 
+    const handleUpdate = async 
+
     return (
         <div className='m-5'>
             {profile ? (
