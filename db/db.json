@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "user": {
         "id": 101,
         "username": "steve_rogers",
@@ -23,7 +23,7 @@
       "timestamp": "2025-02-11T14:30:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "user": {
         "id": 102,
         "username": "bruce_wayne",
@@ -40,8 +40,8 @@
       ],
       "timestamp": "2025-02-12T09:45:00Z"
     },
-     {
-      "id": 3,
+    {
+      "id": "3",
       "user": {
         "id": 103,
         "username": "tony_stark",
@@ -59,36 +59,36 @@
       "timestamp": "2025-02-12T09:45:00Z"
     }
   ],
-  "profile":{
+  "profile": {
     "id": 201,
     "username": "son_goku",
     "profile_pic": "/assets/goku.jpg"
   },
   "suggestions": [
     {
-      "id": 301,
+      "id": "301",
       "username": "prince_vegeta",
       "profile_pic": "/assets/vegeta.jpg"
     },
     {
-      "id": 302,
+      "id": "302",
       "username": "thor",
       "profile_pic": "/assets/thor.jpg"
     },
     {
-      "id": 303,
+      "id": "303",
       "username": "T'Challa",
       "profile_pic": "/assets/black panther.jpg"
     },
     {
-      "id": 304,
+      "id": "304",
       "username": "ben_tennyson",
       "profile_pic": "/assets/ben 10.jpg"
     }
   ],
   "story": [
     {
-      "id": 1,
+      "id": "1",
       "user": {
         "id": 101,
         "username": "steve_rogers",
@@ -97,7 +97,7 @@
       "image": "/assets/Captain America Love.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "user": {
         "id": 102,
         "username": "bruce_wayne",
@@ -105,8 +105,8 @@
       },
       "image": "/assets/joker.jpg"
     },
-     {
-      "id": 3,
+    {
+      "id": "3",
       "user": {
         "id": 103,
         "username": "tony_stark",
