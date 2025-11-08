@@ -18,7 +18,9 @@ function Profile() {
         }));
     }
 
-    const handleUpdate = async 
+    const handleUpdate = async () => {
+        axios.post('http://localhost:3000/profile', profile)
+        .then(console.log("Updated"))
 
     return (
         <div className='m-5'>
