@@ -125,6 +125,11 @@
       "id": 102,
       "username": "bruce_wayne",
       "profile_pic": "/assets/batman.jpg"
+    },
+    {
+      "id": 101,
+      "username": "steve_rogers",
+      "profile_pic": "/assets/captain america.jpg"
     }
   ]
 }
