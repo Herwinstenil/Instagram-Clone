@@ -122,9 +122,9 @@
       "profile_pic": "/assets/ironman.jpg"
     },
     {
-              "id": 102,
-        "username": "bruce_wayne",
-        "profile_pic": "/assets/batman.jpg"
+      "id": 102,
+      "username": "bruce_wayne",
+      "profile_pic": "/assets/batman.jpg"
     }
   ]
 }
