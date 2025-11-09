@@ -117,19 +117,20 @@
   ],
   "followers": [
     {
-      "id": 103,
-      "username": "tony_stark",
-      "profile_pic": "/assets/ironman.jpg"
+      "id": "401",
+      "username": "clark_kent",
+      "profile_pic": "/assets/superman.jpg"
     },
     {
-      "id": 102,
-      "username": "bruce_wayne",
-      "profile_pic": "/assets/batman.jpg"
+      "id": "402",
+      "username": "diana_prince",
+      "profile_pic": "/assets/wonder woman.jpg"
     },
+
     {
-      "id": 101,
-      "username": "steve_rogers",
-      "profile_pic": "/assets/captain america.jpg"
+      "id": "403",
+      "username": "barry_allen",
+      "profile_pic": "/assets/flash.jpg"
     }
-  ]
+  ]  
 }
