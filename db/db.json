@@ -114,5 +114,12 @@
       },
       "image": "/assets/last time.jpg"
     }
-  ]
+  ],
+  "followers": [
+    {
+      "id": 103,
+        "username": "tony_stark",
+        "profile_pic": "/assets/ironman.jpg"
+    }
+  ]  
 }
