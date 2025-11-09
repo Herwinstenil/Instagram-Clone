@@ -123,13 +123,18 @@
     },
     {
       "id": "402",
-      "username": "diana_prince",
-      "profile_pic": "/assets/wonder woman.jpg"
+      "username": "monkey_d_luffy",
+      "profile_pic": "/assets/luffy.jpg"
     },
     {
       "id": "403",
-      "username": "barry_allen",
-      "profile_pic": "/assets/flash.jpg"
+      "username": "naruto_uzumaki",
+      "profile_pic": "/assets/naruto.jpg"
+    },
+    {
+      "id": "404",
+      "username": "ichigo_kurosaki",
+      "profile_pic": "/assets/ichigo.jpg"
     }
   ]
 }
