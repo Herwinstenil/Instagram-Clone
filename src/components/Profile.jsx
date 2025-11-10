@@ -6,9 +6,12 @@ function Profile() {
 
     const [profile, setProfile] = useState(null);
 
+    const [followers, setFollowers] = useState([]);
+
     useEffect(() => {
         axios.get('http://localhost:3000/profile')
-            .then(data => { setProfile(data.data); console.log(data.data) })
+        .then(data => { setProfile(data.data); console.log(data.data) })
+        .catch(err => console.log(err))
     }, [])
 
     function HandleOnChange(e) {
