@@ -16,6 +16,7 @@ function Profile() {
         axios.get('http://localhost:3000/followers')
         .then(data => setFollowers(data))
         .catch(err => console.log(err))
+
     }, [])
 
     function HandleOnChange(e) {
@@ -51,6 +52,7 @@ function Profile() {
                         className='form-control'
                         onChange={HandleOnChange}
                     />
+                    
                     <button className='btn btn-primary mt-3'
                         onClick={handleUpdate}
                         >
