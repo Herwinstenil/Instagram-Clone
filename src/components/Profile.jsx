@@ -12,6 +12,8 @@ function Profile() {
         axios.get('http://localhost:3000/profile')
         .then(data => { setProfile(data.data); console.log(data.data) })
         .catch(err => console.log(err))
+
+        axios.get('http://localhost:3000/followers')
     }, [])
 
     function HandleOnChange(e) {
