@@ -65,9 +65,11 @@ function Profile() {
             )}
 
             {followers.length > 0 ? (
-                
+
+            ):(
+                <div> No Followers Found </div>
             )}
-            
+
         </div>
     )
 }
