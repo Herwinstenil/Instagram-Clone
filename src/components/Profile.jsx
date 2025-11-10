@@ -52,7 +52,7 @@ function Profile() {
                         className='form-control'
                         onChange={HandleOnChange}
                     />
-                    
+
                     <button className='btn btn-primary mt-3'
                         onClick={handleUpdate}
                         >
@@ -63,6 +63,11 @@ function Profile() {
             ) : (
                 <div>Loading Profile...</div>
             )}
+
+            {followers.length > 0 ? (
+                
+            )}
+            
         </div>
     )
 }
