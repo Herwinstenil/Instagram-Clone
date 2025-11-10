@@ -10,12 +10,12 @@ function Profile() {
 
     useEffect(() => {
         axios.get('http://localhost:3000/profile')
-        .then(data => { setProfile(data.data); console.log(data.data) })
-        .catch(err => console.log(err))
+            .then(data => { setProfile(data.data); console.log(data.data) })
+            .catch(err => console.log(err))
 
         axios.get('http://localhost:3000/followers')
-        .then(data => setFollowers(data))
-        .catch(err => console.log(err))
+            .then(data => setFollowers(data))
+            .catch(err => console.log(err))
 
     }, [])
 
@@ -28,8 +28,8 @@ function Profile() {
 
     const handleUpdate = async () => {
         axios.put('http://localhost:3000/profile', profile)
-        .then(console.log("Updated"))
-        .catch(err => console.log(err))
+            .then(console.log("Updated"))
+            .catch(err => console.log(err))
     }
 
     return (
@@ -55,7 +55,7 @@ function Profile() {
 
                     <button className='btn btn-primary mt-3'
                         onClick={handleUpdate}
-                        >
+                    >
                         Update Profile
                     </button>
 
@@ -70,7 +70,7 @@ function Profile() {
 
                     </div>
                 ))
-            ):(
+            ) : (
                 <div> No Followers Found </div>
             )}
 
