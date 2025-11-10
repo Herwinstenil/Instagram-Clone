@@ -65,7 +65,11 @@ function Profile() {
             )}
 
             {followers.length > 0 ? (
+                followers.map(follower => (
+                    <div>
 
+                    </div>
+                ))
             ):(
                 <div> No Followers Found </div>
             )}
