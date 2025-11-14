@@ -46,7 +46,7 @@ function Profile() {
             {profile ? (
                 <div>
                     <img className='profile rounded-circle' src={profile.profile_pic} alt="Profile Pic" />
-                    <h5>{profile.username}</h5>
+                    <h5 className="mt-3 profile-dp">{profile.username}</h5>
 
                     <input type="text"
                         value={profile.username}
@@ -75,7 +75,7 @@ function Profile() {
 
             {followers.length > 0 ? (
                 followers.map(follower => (
-                    <div key={follower.id} className='d-flex my-2 align-items-center '>
+                    <div key={follower.id} className='d-flex my-2 align-items-center'>
                         <img className='follow rounded-circle' src={follower.profile_pic} alt="Profile Pic" />
                         <span className="ms-3">{follower.username}</span>
                         <button className='btn btn-secondary ms-auto' onClick={()=>{handleUnFollow(follower.id)}}>Unfollow</button>
