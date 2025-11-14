@@ -32,6 +32,12 @@ function Profile() {
             .catch(err => console.log(err))
     }
 
+    const handleUnFollow = async (id) => {
+        axios.delete(`http://localhost:3000/followers/${id}`)
+            .then(alert("Unfollowed"))
+            .catch(err => console.log(err))
+    }
+
     return (
         <div className='m-5'>
             {profile ? (
@@ -66,9 +72,9 @@ function Profile() {
 
             {followers.length > 0 ? (
                 followers.map(follower => (
-                    <div key={follower.id}>
+                    <div key={follower.id} className='d-flex my-2'>
                         {follower.username}
-
+                        <button className='btn btn-secondary ms-auto'>Unfollow</button>
                     </div>
                 ))
             ) : (
