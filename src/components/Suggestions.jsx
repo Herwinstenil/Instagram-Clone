@@ -26,8 +26,8 @@ function Suggestions() {
 
   }, []);
 
-  const handleFollow = async (id, username) => {
-    axios.post('http://localhost:3000/followers', { "id": id, "username": username })
+  const handleFollow = async (id, username, profile_pic) => {
+    axios.post('http://localhost:3000/followers', { "id": id, "username": username, "profile_pic": profile_pic })
       .then(() => {
         alert('Followed');
         // Re-fetch followers after follow
@@ -66,7 +66,7 @@ function Suggestions() {
                   {followers.some(follower => follower.username === suggestion.username) ? (
                     <span className='text-muted ms-auto'>Following</span>
                   ) : (
-                    <a href="#" className='text-primary ms-auto text-decoration-none cursor-pointer' onClick={() => { handleFollow(suggestion.id, suggestion.username) }}>Follow</a>
+                    <a href="#" className='text-primary ms-auto text-decoration-none cursor-pointer' onClick={() => { handleFollow(suggestion.id, suggestion.username, suggestion.profile_pic) }}>Follow</a>
                   )}
                 </div>
               </div>
