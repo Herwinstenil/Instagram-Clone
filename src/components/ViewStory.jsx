@@ -23,9 +23,9 @@ function ViewStory() {
     return (
         <div>
             {story ? <div className='d-flex justify-content-center align-items-center'>
-                <Link to ={`/story/${Number(id)-1}/${tot}`}><i class="bi bi-arrow-left-circle-fill"></i></Link>
+                <Link to ={`/story/${Number(id)-1}/${tot}`} className="mx-3"><i class="bi bi-arrow-left-circle-fill fs-3"></i></Link>
                 <img className='story-image vh-100' src={story.image} alt="story" />
-                <Link to ={`/story/${Number(id)+1}/${tot}`}><i class="bi bi-arrow-right-circle-fill"></i></Link>
+                <Link to ={`/story/${Number(id)+1}/${tot}`} className="mx-3"><i class="bi bi-arrow-right-circle-fill fs-3"></i></Link>
             </div> :
 
                 <div>Loading...</div>}
