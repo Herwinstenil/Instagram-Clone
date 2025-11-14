@@ -20,7 +20,7 @@ function Suggestions() {
 
   }, []);
 
-  const handleFollow = async (id, username) {
+  const handleFollow = async (id, username) => {
     axios.post('http://localhost:3000/followers', { "id":id, "username":username })
       .then(alert('Followed'))
       .catch(err => console.log('Error following user:', err))
@@ -50,7 +50,7 @@ function Suggestions() {
                   <div className='d-flex'>
                     <img className='dp rounded-circle' src={suggestion.profile_pic} alt="Profile pic" />
                     <h5>{suggestion.username}</h5>
-                    <a className='text-primary ms-auto'>Follow</a>
+                    <a className='text-primary ms-auto' onClick={()=>{handleFollow(suggestion.id,suggestion.username)}}>Follow</a>
                   </div>
                 </div>
               ))}
