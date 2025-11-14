@@ -17,6 +17,7 @@
 .story {
     height: 70px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .dp {
