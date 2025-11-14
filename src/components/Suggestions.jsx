@@ -38,7 +38,7 @@ function Suggestions() {
           : <p>Loading Profile...</p>
         }
 
-        <div className='d-flex'>
+        <div className='d-flex mt-2 mb-2'>
           <p>Suggested for you</p>
           <b className='ms-auto'>See All</b>
         </div>
@@ -47,10 +47,10 @@ function Suggestions() {
             <div>
               {Suggestions.map((suggestion) => (
                 <div key={suggestion.id}>
-                  <div className='d-flex'>
+                  <div className='d-flex mt-2 mb-2'>
                     <img className='dp rounded-circle' src={suggestion.profile_pic} alt="Profile pic" />
-                    <h5>{suggestion.username}</h5>
-                    <a className='text-primary ms-auto' onClick={()=>{handleFollow(suggestion.id,suggestion.username)}}>Follow</a>
+                    <h5 className="ms-2">{suggestion.username}</h5>
+                    <a href="#" className='text-primary ms-auto text-decoration-none cursor-pointer' onClick={()=>{handleFollow(suggestion.id,suggestion.username)}}>Follow</a>
                   </div>
                 </div>
               ))}

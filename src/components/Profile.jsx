@@ -8,6 +8,8 @@ function Profile() {
 
     const [followers, setFollowers] = useState([]);
 
+    const [Unfollowed, setUnfollowed] = useState(0);
+
     useEffect(() => {
         axios.get('http://localhost:3000/profile')
             .then(data => setProfile(data.data))
@@ -17,7 +19,7 @@ function Profile() {
             .then(data => setFollowers(data.data))
             .catch(err => console.log(err))
 
-    }, [])
+    }, [Unfollowed])
 
     function HandleOnChange(e) {
         setProfile(prevState => ({
@@ -35,6 +37,7 @@ function Profile() {
     const handleUnFollow = async (id) => {
         axios.delete(`http://localhost:3000/followers/${id}`)
             .then(alert("Unfollowed"))
+            .then(setUnfollowed(!Unfollowed))
             .catch(err => console.log(err))
     }
 
@@ -72,9 +75,10 @@ function Profile() {
 
             {followers.length > 0 ? (
                 followers.map(follower => (
-                    <div key={follower.id} className='d-flex my-2'>
-                        {follower.username}
-                        <button className='btn btn-secondary ms-auto'>Unfollow</button>
+                    <div key={follower.id} className='d-flex my-2 align-items-center '>
+                        <img className='follow rounded-circle' src={follower.profile_pic} alt="Profile Pic" />
+                        <span className="ms-3">{follower.username}</span>
+                        <button className='btn btn-secondary ms-auto' onClick={()=>{handleUnFollow(follower.id)}}>Unfollow</button>
                     </div>
                 ))
             ) : (
