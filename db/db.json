@@ -84,6 +84,26 @@
       "id": "304",
       "username": "ben_tennyson",
       "profile_pic": "/assets/ben 10.jpg"
+    },
+      {
+      "id": "305",
+      "username": "kal_el",
+      "profile_pic": "/assets/superman.jpg"
+    },
+    {
+      "id": "306",
+      "username": "monkey_d_luffy",
+      "profile_pic": "/assets/luffy.jpg"
+    },
+    {
+      "id": "307",
+      "username": "naruto_uzumaki",
+      "profile_pic": "/assets/naruto.jpg"
+    },
+    {
+      "id": "308",
+      "username": "ichigo_kurosaki",
+      "profile_pic": "/assets/ichigo.jpg"
     }
   ],
   "story": [

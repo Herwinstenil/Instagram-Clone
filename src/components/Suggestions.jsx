@@ -5,6 +5,7 @@ function Suggestions() {
 
   const [profile, setProfile] = useState(null);
   const [Suggestions, setSuggestions] = useState([]);
+  const [followers, setFollowers] = useState([]);
 
   useEffect(() => {
 
@@ -18,13 +19,25 @@ function Suggestions() {
       .then(data => setSuggestions(data))
       .catch(err => console.log('Error fetching suggestions:', err))
 
+    fetch('http://localhost:3000/followers')
+      .then(data => data.json())
+      .then(data => setFollowers(data))
+      .catch(err => console.log('Error fetching followers:', err))
+
   }, []);
 
   const handleFollow = async (id, username) => {
-    axios.post('http://localhost:3000/followers', { "id":id, "username":username })
-      .then(alert('Followed'))
+    axios.post('http://localhost:3000/followers', { "id": id, "username": username })
+      .then(() => {
+        alert('Followed');
+        // Re-fetch followers after follow
+        fetch('http://localhost:3000/followers')
+          .then(data => data.json())
+          .then(data => setFollowers(data))
+          .catch(err => console.log('Error re-fetching followers:', err));
+      })
       .catch(err => console.log('Error following user:', err))
-  } 
+  }
 
   return (
     <div>
@@ -43,24 +56,28 @@ function Suggestions() {
           <b className='ms-auto'>See All</b>
         </div>
 
-         {Suggestions.length > 0 ? (
-            <div>
-              {Suggestions.map((suggestion) => (
-                <div key={suggestion.id}>
-                  <div className='d-flex mt-2 mb-2'>
-                    <img className='dp rounded-circle' src={suggestion.profile_pic} alt="Profile pic" />
-                    <h5 className="ms-2">{suggestion.username}</h5>
-                    <a href="#" className='text-primary ms-auto text-decoration-none cursor-pointer' onClick={()=>{handleFollow(suggestion.id,suggestion.username)}}>Follow</a>
-                  </div>
+        {Suggestions.length > 0 ? (
+          <div>
+            {Suggestions.map((suggestion) => (
+              <div key={suggestion.id}>
+                <div className='d-flex mt-2 mb-2'>
+                  <img className='dp rounded-circle' src={suggestion.profile_pic} alt="Profile pic" />
+                  <h5 className="ms-2">{suggestion.username}</h5>
+                  {followers.some(follower => follower.username === suggestion.username) ? (
+                    <span className='text-muted ms-auto'>Following</span>
+                  ) : (
+                    <a href="#" className='text-primary ms-auto text-decoration-none cursor-pointer' onClick={() => { handleFollow(suggestion.id, suggestion.username) }}>Follow</a>
+                  )}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
         ) : (
-            <div>
-              Loading suggestion...
-            </div>
+          <div>
+            Loading suggestion...
+          </div>
         )}
-        
+
       </div>
     </div>
   )

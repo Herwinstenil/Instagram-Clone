@@ -60,7 +60,7 @@ function Profile() {
                             </div>
 
                             <div>
-                                <h6 className="fw-bold">4</h6>
+                                <h6 className="fw-bold">{followers.length}</h6>
                                 <h6 className="text-muted">Following</h6>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ function Profile() {
             ) : (
                 <div>Loading Profile...</div>
             )}
-            
+
             <h6 className='my-4 mb-2'>The People You Follow</h6>
             {followers.length > 0 ? (
                 followers.map(follower => (
