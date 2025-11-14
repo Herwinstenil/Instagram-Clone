@@ -10,11 +10,11 @@ function Profile() {
 
     useEffect(() => {
         axios.get('http://localhost:3000/profile')
-            .then(data => { setProfile(data.data); console.log(data.data) })
+            .then(data => setProfile(data.data))
             .catch(err => console.log(err))
 
         axios.get('http://localhost:3000/followers')
-            .then(data => setFollowers(data))
+            .then(data => setFollowers(data.data))
             .catch(err => console.log(err))
 
     }, [])
@@ -66,7 +66,8 @@ function Profile() {
 
             {followers.length > 0 ? (
                 followers.map(follower => (
-                    <div>
+                    <div key={follower.id}>
+                        {follower.username}
 
                     </div>
                 ))
