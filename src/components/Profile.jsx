@@ -45,8 +45,27 @@ function Profile() {
         <div className='m-5'>
             {profile ? (
                 <div>
-                    <img className='profile rounded-circle' src={profile.profile_pic} alt="Profile Pic" />
-                    <h5 className="mt-3 profile-dp">{profile.username}</h5>
+                    <div className="d-flex align-items-center gap-5 mb-2">
+                        <img className='profile rounded-circle' src={profile.profile_pic} alt="Profile Pic" />
+                        <div className="d-flex gap-4 text-center">
+
+                            <div>
+                                <h6 className="fw-bold">1.1B</h6>
+                                <h6 className="text-muted">Friends</h6>
+                            </div>
+
+                            <div>
+                                <h6 className="fw-bold">1.1B</h6>
+                                <h6 className="text-muted">Followers</h6>
+                            </div>
+
+                            <div>
+                                <h6 className="fw-bold">4</h6>
+                                <h6 className="text-muted">Following</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 className=" profile-dp ">{profile.username}</h5>
 
                     <input type="text"
                         value={profile.username}
@@ -72,13 +91,14 @@ function Profile() {
             ) : (
                 <div>Loading Profile...</div>
             )}
-
+            
+            <h6 className='my-4 mb-2'>The People You Follow</h6>
             {followers.length > 0 ? (
                 followers.map(follower => (
                     <div key={follower.id} className='d-flex my-2 align-items-center'>
                         <img className='follow rounded-circle' src={follower.profile_pic} alt="Profile Pic" />
                         <span className="ms-3">{follower.username}</span>
-                        <button className='btn btn-secondary ms-auto' onClick={()=>{handleUnFollow(follower.id)}}>Unfollow</button>
+                        <button className='btn btn-secondary ms-auto' onClick={() => { handleUnFollow(follower.id) }}>Unfollow</button>
                     </div>
                 ))
             ) : (
