@@ -10,6 +10,8 @@ function Profile() {
 
     const [Unfollowed, setUnfollowed] = useState(0);
 
+    const [showFollowingList, setShowFollowingList] = useState(false);
+
     useEffect(() => {
         axios.get('http://localhost:3000/profile')
             .then(data => setProfile(data.data))
@@ -59,7 +61,7 @@ function Profile() {
                                 <h6 className="text-muted">Followers</h6>
                             </div>
 
-                            <div>
+                            <div onClick={() => setShowFollowingList(!showFollowingList)} style={{ cursor: 'pointer' }}>
                                 <h6 className="fw-bold">{followers.length}</h6>
                                 <h6 className="text-muted">Following</h6>
                             </div>
@@ -92,17 +94,21 @@ function Profile() {
                 <div>Loading Profile...</div>
             )}
 
-            <h6 className='my-4 mb-2'>The People You Follow</h6>
-            {followers.length > 0 ? (
-                followers.map(follower => (
-                    <div key={follower.id} className='d-flex my-2 align-items-center'>
-                        <img className='follow rounded-circle' src={follower.profile_pic} alt="Profile Pic" />
-                        <span className="ms-3">{follower.username}</span>
-                        <button className='btn btn-secondary ms-auto' onClick={() => { handleUnFollow(follower.id) }}>Unfollow</button>
-                    </div>
-                ))
-            ) : (
-                <div> No Followers Found </div>
+            {showFollowingList && (
+                <>
+                    <h6 className='my-4 mb-2'>The People You Follow</h6>
+                    {followers.length > 0 ? (
+                        followers.map(follower => (
+                            <div key={follower.id} className='d-flex my-2 align-items-center'>
+                                <img className='follow rounded-circle' src={follower.profile_pic} alt="Profile Pic" />
+                                <span className="ms-3">{follower.username}</span>
+                                <button className='btn btn-secondary ms-auto' onClick={() => { handleUnFollow(follower.id) }}>Unfollow</button>
+                            </div>
+                        ))
+                    ) : (
+                        <div> No Followers Found </div>
+                    )}
+                </>
             )}
 
         </div>
