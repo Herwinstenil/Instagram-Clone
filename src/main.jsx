@@ -4,6 +4,7 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ViewStory from './components/ViewStory.jsx'
 import Profile from './components/Profile.jsx'
+import ViewPost from './components/ViewPost.jsx'
 
 const router = createBrowserRouter(
   [
@@ -18,6 +19,10 @@ const router = createBrowserRouter(
     {
       path: '/profile',
       element: <Profile />
+    },
+    {
+      path: '/post/:id',
+      element: <ViewPost />
     }
   ]
 )

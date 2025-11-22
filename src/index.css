@@ -60,6 +60,11 @@
     width: 75vh;
 }
 
+.post-image {
+    border-radius: 10px;
+    width: 100vh;
+}
+
 .profile {
     width: 150px;
     height: 150px;

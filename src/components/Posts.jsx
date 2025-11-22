@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Posts() {
 
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://localhost:3000/posts')
@@ -10,6 +12,10 @@ function Posts() {
       .then((data => setPosts(data)))
       .catch(err => console.log('Error fetching posts:', err))
   }, []);
+
+  const handleImageClick = (postId) => {
+    navigate(`/post/${postId}`);
+  };
 
   return (
     <div className='d-flex justify-content-center'>
@@ -21,7 +27,13 @@ function Posts() {
                     <img className='dp rounded-circle' src={post.user.profile_pic} alt="Profile pic" />
                     <h5>{post.user.username}</h5>
                   </div>
-                  <img className='image' src={post.image} alt="Post image" />
+                  <img 
+                    className='image' 
+                    src={post.image} 
+                    alt="Post image" 
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => handleImageClick(post.id)}
+                  />
                   <div>
                     <i className="bi bi-heart"></i>
                     <i className="bi bi-chat"></i>
