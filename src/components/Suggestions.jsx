@@ -6,6 +6,7 @@ function Suggestions() {
   const [profile, setProfile] = useState(null);
   const [Suggestions, setSuggestions] = useState([]);
   const [followers, setFollowers] = useState([]);
+  const [showSwitchMenu, setShowSwitchMenu] = useState(false);
 
   useEffect(() => {
 
@@ -46,10 +47,22 @@ function Suggestions() {
           <div className='d-flex'>
             <img className='dp rounded-circle' src={profile.profile_pic} alt="Profile pic" />
             <h5>{profile.username}</h5>
-            <small className='ms-auto text-primary'>Switch</small>
+            <small className='ms-auto text-primary' style={{ cursor: 'pointer' }} onClick={() => setShowSwitchMenu(!showSwitchMenu)}>Switch</small>
           </div>
           : <p>Loading Profile...</p>
         }
+
+        {showSwitchMenu && (
+          <div className='switch-menu mt-2 p-2 border rounded'>
+            <div className='d-flex align-items-center'>
+              <img className='dp rounded-circle' src={profile.profile_pic} alt="Profile pic" />
+              <span className='ms-2'>{profile.username}</span>
+            </div>
+            <div className='d-flex align-items-center mt-2'>
+              <span className='text-primary'>+ Add Instagram account</span>
+            </div>
+          </div>
+        )}
 
         <div className='d-flex mt-2 mb-2'>
           <p>Suggested for you</p>
