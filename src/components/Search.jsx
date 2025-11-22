@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import data from '../../db/db.json';
 
 function Search({ setShowSearch }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [results, setResults] = useState([]);
     const [searched, setSearched] = useState(false);
+    const [followers, setFollowers] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/followers')
+            .then(data => data.json())
+            .then(data => setFollowers(data))
+            .catch(err => console.log('Error fetching followers:', err));
+    }, []);
 
     // Collect all unique users
     const allUsers = [];
@@ -61,6 +70,19 @@ function Search({ setShowSearch }) {
         setSearched(true);
     };
 
+    const handleFollow = async (id, username, profile_pic) => {
+        axios.post('http://localhost:3000/followers', { "id": id, "username": username, "profile_pic": profile_pic })
+            .then(() => {
+                alert('Followed');
+                // Re-fetch followers after follow
+                fetch('http://localhost:3000/followers')
+                    .then(data => data.json())
+                    .then(data => setFollowers(data))
+                    .catch(err => console.log('Error re-fetching followers:', err));
+            })
+            .catch(err => console.log('Error following user:', err));
+    };
+
     return (
         <div className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 d-flex justify-content-center align-items-center" style={{ zIndex: 1050 }}>
             <div className="bg-white p-4 rounded w-50">
@@ -87,6 +109,11 @@ function Search({ setShowSearch }) {
                                     <li key={user.id} className="list-group-item d-flex align-items-center">
                                         <img src={user.profile_pic} alt={user.username} className="rounded-circle me-3" style={{ width: '40px', height: '40px' }} />
                                         <span>{user.username}</span>
+                                        {followers.some(follower => follower.username === user.username) ? (
+                                            <span className='text-muted ms-auto'>Following</span>
+                                        ) : (
+                                            <button className='btn btn-primary ms-auto' onClick={() => handleFollow(user.id, user.username, user.profile_pic)}>+ Follow</button>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
