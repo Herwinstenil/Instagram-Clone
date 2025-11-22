@@ -7,6 +7,7 @@ function Suggestions() {
   const [Suggestions, setSuggestions] = useState([]);
   const [followers, setFollowers] = useState([]);
   const [showSwitchMenu, setShowSwitchMenu] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
 
@@ -66,12 +67,12 @@ function Suggestions() {
 
         <div className='d-flex mt-2 mb-2'>
           <p>Suggested for you</p>
-          <b className='ms-auto'>See All</b>
+          <b className='ms-auto' style={{ cursor: 'pointer' }} onClick={() => setShowAll(!showAll)}>{showAll ? 'See Less' : 'See All'}</b>
         </div>
 
         {Suggestions.length > 0 ? (
           <div>
-            {Suggestions.map((suggestion) => (
+            {Suggestions.slice(0, showAll ? Suggestions.length : 4).map((suggestion) => (
               <div key={suggestion.id}>
                 <div className='d-flex mt-2 mb-2'>
                   <img className='dp rounded-circle' src={suggestion.profile_pic} alt="Profile pic" />
