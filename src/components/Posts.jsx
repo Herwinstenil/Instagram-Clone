@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function Posts() {
 
   const [posts, setPosts] = useState([]);
+  const [commentInputs, setCommentInputs] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,6 +39,62 @@ function Posts() {
     }
   };
 
+  const toggleCommentInput = (postId) => {
+    setCommentInputs(prev => ({
+      ...prev,
+      [postId]: {
+        ...prev[postId],
+        visible: !prev[postId]?.visible,
+        text: prev[postId]?.text || ''
+      }
+    }));
+  };
+
+  const handleCommentChange = (postId, text) => {
+    setCommentInputs(prev => ({
+      ...prev,
+      [postId]: {
+        ...prev[postId],
+        text
+      }
+    }));
+  };
+
+  const handleCommentSubmit = async (postId) => {
+    const commentText = commentInputs[postId]?.text?.trim();
+    if (!commentText) return;
+
+    const newComment = {
+      user: 'current_user', // Assuming a default user; in real app, get from auth
+      comment: commentText
+    };
+
+    const updatedPosts = posts.map(post =>
+      post.id === postId ? { ...post, comments: [...post.comments, newComment] } : post
+    );
+    setPosts(updatedPosts);
+
+    // Clear the input
+    setCommentInputs(prev => ({
+      ...prev,
+      [postId]: { visible: false, text: '' }
+    }));
+
+    try {
+      await fetch(`http://localhost:3000/posts/${postId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ comments: updatedPosts.find(p => p.id === postId).comments }),
+      });
+    } catch (err) {
+      console.log('Error updating comments:', err);
+      // Optionally revert the local state on error
+      setPosts(posts);
+    }
+  };
+
   return (
     <div className='d-flex justify-content-center'>
       {posts.length > 0 ? (
@@ -61,13 +118,36 @@ function Posts() {
                   style={{ cursor: 'pointer' }}
                   onClick={() => handleLike(post.id)}
                 ></i>
-                <i className="bi bi-chat"></i>
+                <i
+                  className="bi bi-chat"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => toggleCommentInput(post.id)}
+                ></i>
                 <i className="bi bi-send"></i>
               </div>
               <div>
                 <b>{post.likes} Likes</b>
               </div>
               <p>{post.caption}</p>
+              {post.comments && post.comments.length > 0 && (
+                <div>
+                  {post.comments.map((comment, index) => (
+                    <p key={index}><b>{comment.user}:</b> {comment.comment}</p>
+                  ))}
+                </div>
+              )}
+              {commentInputs[post.id]?.visible && (
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Add a comment..."
+                    value={commentInputs[post.id]?.text || ''}
+                    onChange={(e) => handleCommentChange(post.id, e.target.value)}
+                    onKeyPress={(e) => e.key === 'Enter' && handleCommentSubmit(post.id)}
+                  />
+                  <button onClick={() => handleCommentSubmit(post.id)}>Post</button>
+                </div>
+              )}
             </div>
           ))}
         </div>
