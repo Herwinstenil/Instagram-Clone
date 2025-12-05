@@ -1,65 +1,147 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
-function Sidebar({ setShowSearch }) {
+function Sidebar({ setShowSearch, isMobile, sidebarOpen, setSidebarOpen }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeItem, setActiveItem] = useState('home');
-  const [isMobile, setIsMobile] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    // Set active item based on current route
     const path = location.pathname;
     if (path === '/') setActiveItem('home');
     else if (path === '/profile') setActiveItem('profile');
     else if (path === '/search') setActiveItem('search');
     else setActiveItem('home');
-
-    // Check if mobile
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
   }, [location.pathname]);
 
+  const handleNavClick = (item) => {
+    setActiveItem(item.id);
+    item.onClick?.();
+    if (isMobile && setSidebarOpen) {
+      setSidebarOpen(false);
+    }
+  };
+
   const menuItems = [
-    { id: 'home', icon: 'bi-house-door', label: 'Home', onClick: () => navigate('/') },
-    { id: 'search', icon: 'bi-search', label: 'Search', onClick: () => setShowSearch(true) },
-    { id: 'explore', icon: 'bi-compass', label: 'Explore' },
-    { id: 'reels', icon: 'bi-play-circle', label: 'Reels' },
-    { id: 'messages', icon: 'bi-chat-dots', label: 'Messages' },
-    { id: 'notifications', icon: 'bi-heart', label: 'Notifications' },
-    { id: 'create', icon: 'bi-plus-square', label: 'Create' },
-    { id: 'profile', icon: 'bi-person-circle', label: 'Profile', onClick: () => navigate('/profile') },
+    { 
+      id: 'home', 
+      icon: 'bi-house-door', 
+      label: 'Home', 
+      onClick: () => navigate('/') 
+    },
+    { 
+      id: 'search', 
+      icon: 'bi-search', 
+      label: 'Search', 
+      onClick: () => {
+        setShowSearch(true);
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      } 
+    },
+    { 
+      id: 'explore', 
+      icon: 'bi-compass', 
+      label: 'Explore',
+      onClick: () => {
+        console.log('Explore clicked');
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      }
+    },
+    { 
+      id: 'reels', 
+      icon: 'bi-play-circle', 
+      label: 'Reels',
+      onClick: () => {
+        console.log('Reels clicked');
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      }
+    },
+    { 
+      id: 'messages', 
+      icon: 'bi-chat-dots', 
+      label: 'Messages',
+      onClick: () => {
+        console.log('Messages clicked');
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      }
+    },
+    { 
+      id: 'notifications', 
+      icon: 'bi-heart', 
+      label: 'Notifications',
+      onClick: () => {
+        console.log('Notifications clicked');
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      }
+    },
+    { 
+      id: 'create', 
+      icon: 'bi-plus-square', 
+      label: 'Create',
+      onClick: () => {
+        console.log('Create clicked');
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      }
+    },
+    { 
+      id: 'profile', 
+      icon: 'bi-person-circle', 
+      label: 'Profile', 
+      onClick: () => {
+        navigate('/profile');
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      } 
+    },
   ];
 
   const bottomItems = [
-    { id: 'threads', icon: 'bi-threads', label: 'Threads' },
-    { id: 'more', icon: 'bi-list', label: 'More' },
+    { 
+      id: 'threads', 
+      icon: 'bi-threads', 
+      label: 'Threads',
+      onClick: () => {
+        console.log('Threads clicked');
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      }
+    },
+    { 
+      id: 'more', 
+      icon: 'bi-list', 
+      label: 'More',
+      onClick: () => {
+        console.log('More clicked');
+        if (isMobile && setSidebarOpen) {
+          setSidebarOpen(false);
+        }
+      }
+    },
   ];
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
 
   return (
     <>
       <style>{`
         /* Base Styles */
         .sidebar-container {
-          position: fixed;
-          top: 0;
-          left: 0;
           height: 100vh;
           background: #ffffff;
           border-right: 1px solid #dbdbdb;
           z-index: 1000;
-          transition: all 0.3s ease;
           overflow-x: hidden;
           overflow-y: auto;
           display: flex;
@@ -72,10 +154,11 @@ function Sidebar({ setShowSearch }) {
           padding: 0 12px;
         }
 
-        /* Mobile Sidebar */
+        /* Mobile/Tablet Sidebar */
         .sidebar-mobile {
           width: 72px;
           padding: 0 8px;
+          transition: transform 0.3s ease;
         }
 
         .sidebar-mobile.closed {
@@ -85,51 +168,6 @@ function Sidebar({ setShowSearch }) {
         .sidebar-mobile.open {
           transform: translateX(0);
           box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Mobile Overlay */
-        .sidebar-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.5);
-          z-index: 999;
-          display: none;
-        }
-
-        .sidebar-overlay.active {
-          display: block;
-          animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        /* Mobile Toggle Button */
-        .mobile-toggle-btn {
-          position: fixed;
-          top: 16px;
-          left: 16px;
-          width: 40px;
-          height: 40px;
-          background: #ffffff;
-          border: 1px solid #dbdbdb;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1001;
-          cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-          transition: all 0.3s ease;
-        }
-
-        .mobile-toggle-btn:hover {
-          background: #f8f9fa;
         }
 
         /* Logo */
@@ -223,20 +261,6 @@ function Sidebar({ setShowSearch }) {
           gap: 8px;
         }
 
-        /* Mobile Profile */
-        .mobile-profile {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-weight: 600;
-          font-size: 12px;
-        }
-
         /* Responsive Breakpoints */
         
         /* 320px - Extra Small Phones */
@@ -244,13 +268,6 @@ function Sidebar({ setShowSearch }) {
           .sidebar-mobile {
             width: 64px;
             padding: 0 4px;
-          }
-          
-          .mobile-toggle-btn {
-            top: 12px;
-            left: 12px;
-            width: 36px;
-            height: 36px;
           }
           
           .menu-item {
@@ -270,23 +287,12 @@ function Sidebar({ setShowSearch }) {
             width: 22px;
             height: 22px;
           }
-          
-          .mobile-profile {
-            width: 22px;
-            height: 22px;
-            font-size: 11px;
-          }
         }
 
         /* 375px - Small Phones */
         @media (min-width: 321px) and (max-width: 375px) {
           .sidebar-mobile {
             width: 68px;
-          }
-          
-          .mobile-toggle-btn {
-            width: 38px;
-            height: 38px;
           }
         }
 
@@ -414,16 +420,6 @@ function Sidebar({ setShowSearch }) {
             border-right-color: #262626;
           }
           
-          .mobile-toggle-btn {
-            background: #121212;
-            border-color: #262626;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-          }
-          
-          .mobile-toggle-btn:hover {
-            background: #1a1a1a;
-          }
-          
           .logo-container {
             border-bottom-color: #262626;
           }
@@ -447,15 +443,10 @@ function Sidebar({ setShowSearch }) {
           .bottom-menu {
             border-top-color: #262626;
           }
-          
-          .mobile-profile {
-            background: #363636;
-          }
         }
 
         /* Accessibility */
-        .menu-item:focus,
-        .mobile-toggle-btn:focus {
+        .menu-item:focus {
           outline: 2px solid #0095f6;
           outline-offset: 2px;
         }
@@ -512,25 +503,6 @@ function Sidebar({ setShowSearch }) {
         }
       `}</style>
 
-      {/* Mobile Toggle Button */}
-      {isMobile && (
-        <button 
-          className="mobile-toggle-btn"
-          onClick={toggleSidebar}
-          aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}
-        >
-          <i className={`bi ${sidebarOpen ? 'bi-x' : 'bi-list'}`}></i>
-        </button>
-      )}
-
-      {/* Mobile Overlay */}
-      {isMobile && sidebarOpen && (
-        <div 
-          className={`sidebar-overlay ${sidebarOpen ? 'active' : ''}`}
-          onClick={toggleSidebar}
-        />
-      )}
-
       {/* Sidebar Container */}
       <div 
         className={`sidebar-container ${
@@ -544,7 +516,12 @@ function Sidebar({ setShowSearch }) {
           {isMobile ? (
             <div 
               className="logo-mobile" 
-              onClick={() => navigate('/')}
+              onClick={() => {
+                navigate('/');
+                if (isMobile && setSidebarOpen) {
+                  setSidebarOpen(false);
+                }
+              }}
               aria-label="Instagram Home"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -567,14 +544,14 @@ function Sidebar({ setShowSearch }) {
             <div
               key={item.id}
               className={`menu-item ${activeItem === item.id ? 'active' : ''}`}
-              onClick={() => {
-                setActiveItem(item.id);
-                item.onClick?.();
-                if (isMobile) setSidebarOpen(false);
-              }}
+              onClick={() => handleNavClick(item)}
               role="button"
               tabIndex={0}
-              onKeyPress={(e) => e.key === 'Enter' && item.onClick?.()}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleNavClick(item);
+                }
+              }}
               aria-label={item.label}
             >
               <i className={`bi ${item.icon}${activeItem === item.id ? '-fill' : ''} menu-icon`}></i>
@@ -589,7 +566,7 @@ function Sidebar({ setShowSearch }) {
             <div
               key={item.id}
               className={`menu-item ${activeItem === item.id ? 'active' : ''}`}
-              onClick={() => setActiveItem(item.id)}
+              onClick={() => handleNavClick(item)}
               role="button"
               tabIndex={0}
               aria-label={item.label}
