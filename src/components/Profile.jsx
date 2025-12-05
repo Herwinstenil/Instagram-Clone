@@ -52,6 +52,23 @@ function Profile() {
         setIsEditing(false);
     }
 
+    const handleShareProfile = () => {
+        const profileUrl = window.location.href;
+        if (navigator.share) {
+            navigator.share({
+                title: `${profile.username}'s Instagram Profile`,
+                text: `Check out ${profile.username}'s Instagram profile`,
+                url: profileUrl,
+            })
+            .then(() => console.log('Successful share'))
+            .catch((error) => console.log('Error sharing:', error));
+        } else {
+            navigator.clipboard.writeText(profileUrl)
+                .then(() => alert('Profile link copied to clipboard!'))
+                .catch(err => console.log('Failed to copy:', err));
+        }
+    }
+
     return (
         <>
             <style>{`
@@ -101,10 +118,32 @@ function Profile() {
                     flex: 1;
                 }
 
+                /* UPDATED: Username above stats */
+                .profile-top-section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    margin-bottom: 20px;
+                }
+
+                .profile-username {
+                    font-size: 28px;
+                    font-weight: 300;
+                    color: #262626;
+                    margin: 0;
+                    word-break: break-word;
+                }
+
+                @media (min-width: 768px) {
+                    .profile-username {
+                        font-size: 32px;
+                    }
+                }
+
                 .profile-stats {
                     display: flex;
                     justify-content: space-around;
-                    margin-bottom: 20px;
+                    gap: 20px;
                 }
 
                 @media (min-width: 425px) {
@@ -120,6 +159,7 @@ function Profile() {
                     transition: transform 0.2s ease;
                     padding: 8px;
                     border-radius: 8px;
+                    min-width: 80px;
                 }
 
                 .stat-item:hover {
@@ -153,34 +193,75 @@ function Profile() {
                     }
                 }
 
-                .profile-username {
-                    font-size: 28px;
-                    font-weight: 300;
-                    color: #262626;
-                    margin-bottom: 20px;
-                    word-break: break-word;
-                }
-
-                @media (min-width: 768px) {
-                    .profile-username {
-                        font-size: 32px;
-                    }
+                /* UPDATED: Action buttons row */
+                .profile-actions {
+                    display: flex;
+                    gap: 12px;
+                    align-items: center;
+                    margin-top: 8px;
                 }
 
                 .edit-profile-btn {
                     background: #f8f9fa;
                     border: 1px solid #dbdbdb;
                     color: #262626;
-                    padding: 6px 24px;
+                    padding: 8px 16px;
                     border-radius: 8px;
                     font-weight: 600;
                     font-size: 14px;
                     cursor: pointer;
                     transition: all 0.2s ease;
+                    flex: 1;
+                    min-height: 34px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
 
                 .edit-profile-btn:hover {
                     background: #e9ecef;
+                }
+
+                .share-profile-btn {
+                    background: #0095f6;
+                    border: 1px solid #0095f6;
+                    color: #ffffff;
+                    padding: 8px 16px;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    flex: 1;
+                    min-height: 34px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 6px;
+                }
+
+                .share-profile-btn:hover {
+                    background: #0081d6;
+                    border-color: #0081d6;
+                }
+
+                .share-icon {
+                    font-size: 16px;
+                }
+
+                /* UPDATED: For larger screens - buttons side by side */
+                @media (min-width: 425px) {
+                    .edit-profile-btn {
+                        flex: none;
+                        padding: 8px 24px;
+                        min-width: 120px;
+                    }
+                    
+                    .share-profile-btn {
+                        flex: none;
+                        padding: 8px 24px;
+                        min-width: 120px;
+                    }
                 }
 
                 /* Edit Form Styles */
@@ -426,6 +507,12 @@ function Profile() {
                         font-size: 18px;
                     }
                     
+                    .edit-profile-btn,
+                    .share-profile-btn {
+                        padding: 8px 12px;
+                        font-size: 12px;
+                    }
+                    
                     .edit-form {
                         padding: 16px;
                     }
@@ -455,6 +542,10 @@ function Profile() {
                         width: 120px;
                         height: 120px;
                     }
+                    
+                    .profile-actions {
+                        flex-direction: row;
+                    }
                 }
 
                 /* 425px - Medium Phones */
@@ -466,6 +557,18 @@ function Profile() {
                     .profile-image {
                         width: 140px;
                         height: 140px;
+                    }
+                    
+                    .profile-actions {
+                        flex-direction: row;
+                        justify-content: flex-start;
+                    }
+                    
+                    .edit-profile-btn,
+                    .share-profile-btn {
+                        flex: none;
+                        width: auto;
+                        min-width: 140px;
                     }
                 }
 
@@ -483,6 +586,15 @@ function Profile() {
                     .profile-stats {
                         gap: 50px;
                     }
+                    
+                    .profile-actions {
+                        justify-content: flex-start;
+                    }
+                    
+                    .edit-profile-btn,
+                    .share-profile-btn {
+                        min-width: 150px;
+                    }
                 }
 
                 /* 1024px - Small Laptops */
@@ -495,6 +607,10 @@ function Profile() {
                     .profile-image {
                         width: 180px;
                         height: 180px;
+                    }
+                    
+                    .profile-actions {
+                        justify-content: flex-start;
                     }
                 }
 
@@ -522,6 +638,13 @@ function Profile() {
                         font-size: 18px;
                     }
                     
+                    .edit-profile-btn,
+                    .share-profile-btn {
+                        padding: 10px 28px;
+                        font-size: 16px;
+                        min-width: 160px;
+                    }
+                    
                     .followers-grid {
                         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
                     }
@@ -542,7 +665,7 @@ function Profile() {
                     
                     .profile-username {
                         font-size: 48px;
-                        margin-bottom: 30px;
+                        margin-bottom: 20px;
                     }
                     
                     .stat-number {
@@ -553,9 +676,15 @@ function Profile() {
                         font-size: 20px;
                     }
                     
-                    .edit-profile-btn {
-                        padding: 10px 32px;
+                    .edit-profile-btn,
+                    .share-profile-btn {
+                        padding: 12px 32px;
                         font-size: 18px;
+                        min-width: 180px;
+                    }
+                    
+                    .share-icon {
+                        font-size: 20px;
                     }
                     
                     .form-label {
@@ -637,6 +766,17 @@ function Profile() {
                         background: #363636;
                     }
                     
+                    .share-profile-btn {
+                        background: #0095f6;
+                        border-color: #0095f6;
+                        color: #ffffff;
+                    }
+                    
+                    .share-profile-btn:hover {
+                        background: #0081d6;
+                        border-color: #0081d6;
+                    }
+                    
                     .edit-form {
                         background: #121212;
                     }
@@ -698,6 +838,7 @@ function Profile() {
                 /* Accessibility */
                 .form-input:focus,
                 .edit-profile-btn:focus,
+                .share-profile-btn:focus,
                 .save-btn:focus,
                 .cancel-btn:focus,
                 .unfollow-btn:focus,
@@ -726,32 +867,46 @@ function Profile() {
                             </div>
                             
                             <div className="profile-info">
-                                <div className="profile-stats">
-                                    <div className="stat-item">
-                                        <span className="stat-number">1.1B</span>
-                                        <span className="stat-label">Friends</span>
-                                    </div>
-                                    <div className="stat-item">
-                                        <span className="stat-number">1.1B</span>
-                                        <span className="stat-label">Followers</span>
-                                    </div>
-                                    <div 
-                                        className="stat-item" 
-                                        onClick={() => setShowFollowingList(!showFollowingList)}
-                                    >
-                                        <span className="stat-number">{followers.length}</span>
-                                        <span className="stat-label">Following</span>
+                                {/* UPDATED: Username above stats */}
+                                <div className="profile-top-section">
+                                    <h1 className="profile-username">{profile.username}</h1>
+                                    
+                                    <div className="profile-stats">
+                                        <div className="stat-item">
+                                            <span className="stat-number">1.1B</span>
+                                            <span className="stat-label">Friends</span>
+                                        </div>
+                                        <div className="stat-item">
+                                            <span className="stat-number">1.1B</span>
+                                            <span className="stat-label">Followers</span>
+                                        </div>
+                                        <div 
+                                            className="stat-item" 
+                                            onClick={() => setShowFollowingList(!showFollowingList)}
+                                        >
+                                            <span className="stat-number">{followers.length}</span>
+                                            <span className="stat-label">Following</span>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <h1 className="profile-username">{profile.username}</h1>
-                                
-                                <button 
-                                    className="edit-profile-btn"
-                                    onClick={() => setIsEditing(!isEditing)}
-                                >
-                                    {isEditing ? 'Cancel Edit' : 'Edit Profile'}
-                                </button>
+                                {/* UPDATED: Action buttons in a row */}
+                                <div className="profile-actions">
+                                    <button 
+                                        className="edit-profile-btn"
+                                        onClick={() => setIsEditing(!isEditing)}
+                                    >
+                                        {isEditing ? 'Cancel Edit' : 'Edit Profile'}
+                                    </button>
+                                    
+                                    <button 
+                                        className="share-profile-btn"
+                                        onClick={handleShareProfile}
+                                    >
+                                        <span className="share-icon">↗</span>
+                                        <span>Share Profile</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
