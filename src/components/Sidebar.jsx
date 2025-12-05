@@ -137,11 +137,16 @@ function Sidebar({ setShowSearch, isMobile, sidebarOpen, setSidebarOpen }) {
     <>
       <style>{`
         /* Base Styles */
+       /* Base Styles */
         .sidebar-container {
+          position: fixed;
+          top: 0;
+          left: 0;
           height: 100vh;
           background: #ffffff;
           border-right: 1px solid #dbdbdb;
           z-index: 1000;
+          transition: all 0.3s ease;
           overflow-x: hidden;
           overflow-y: auto;
           display: flex;

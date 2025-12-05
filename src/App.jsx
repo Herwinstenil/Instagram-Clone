@@ -41,17 +41,6 @@ function App() {
     <>
       <style>{`
         /* Base Styles */
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        body {
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-          background-color: #fafafa;
-          overflow-x: hidden;
-        }
 
         .app-container {
           min-height: 100vh;
@@ -129,9 +118,9 @@ function App() {
           flex-shrink: 0;
           transition: all 0.3s ease;
           height: 100vh;
-          position: sticky;
+         
           top: 0;
-          overflow-y: auto;
+          
         }
 
         /* Dark Mode Support */
