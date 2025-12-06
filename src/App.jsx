@@ -335,7 +335,7 @@ function App() {
         /* 768px - Specific breakpoint to keep sidebar visible */
         @media (min-width: 768px) and (max-width: 768px) {
           .app-container {
-            flex-direction: row;
+            flex-direction: column;
             padding-left: 240px;
           }
 
@@ -364,7 +364,13 @@ function App() {
           }
 
           .suggestions-section {
-            display: none;
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin: 16px 0;
+            max-width: 630px;
+            margin-left: auto;
+            margin-right: auto;
           }
         }
 
