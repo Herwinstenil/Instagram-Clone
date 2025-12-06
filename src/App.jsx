@@ -160,7 +160,7 @@ function App() {
           .app-container {
             flex-direction: column;
           }
-          
+
           .mobile-toggle-btn {
             display: flex;
             top: 12px;
@@ -168,11 +168,11 @@ function App() {
             width: 36px;
             height: 36px;
           }
-          
+
           .mobile-toggle-btn i {
             font-size: 18px;
           }
-          
+
           .sidebar-section {
             position: fixed;
             left: -100%;
@@ -185,19 +185,22 @@ function App() {
             transition: left 0.3s ease;
             height: 100vh;
           }
-          
+
           .sidebar-section.open {
             left: 0;
           }
-          
+
           .feed-section {
             width: 100% !important;
             padding: 60px 12px 20px 12px;
             min-height: 100vh;
           }
-          
+
           .suggestions-section {
-            display: none;
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin: 16px 0;
           }
         }
 
@@ -206,7 +209,7 @@ function App() {
           .app-container {
             flex-direction: column;
           }
-          
+
           .mobile-toggle-btn {
             display: flex;
             top: 14px;
@@ -214,7 +217,7 @@ function App() {
             width: 38px;
             height: 38px;
           }
-          
+
           .sidebar-section {
             position: fixed;
             left: -100%;
@@ -227,19 +230,22 @@ function App() {
             transition: left 0.3s ease;
             height: 100vh;
           }
-          
+
           .sidebar-section.open {
             left: 0;
           }
-          
+
           .feed-section {
             width: 100% !important;
             padding: 60px 16px 20px 16px;
             min-height: 100vh;
           }
-          
+
           .suggestions-section {
-            display: none;
+            display: block;
+            width: 100%;
+            padding: 18px;
+            margin: 18px 0;
           }
         }
 
@@ -248,13 +254,13 @@ function App() {
           .app-container {
             flex-direction: column;
           }
-          
+
           .mobile-toggle-btn {
             display: flex;
             top: 16px;
             left: 16px;
           }
-          
+
           .sidebar-section {
             position: fixed;
             left: -100%;
@@ -267,11 +273,11 @@ function App() {
             transition: left 0.3s ease;
             height: 100vh;
           }
-          
+
           .sidebar-section.open {
             left: 0;
           }
-          
+
           .feed-section {
             width: 100% !important;
             padding: 60px 20px 20px 20px;
@@ -279,9 +285,15 @@ function App() {
             max-width: 425px;
             margin: 0 auto;
           }
-          
+
           .suggestions-section {
-            display: none;
+            display: block;
+            width: 100%;
+            padding: 20px;
+            margin: 20px 0;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
           }
         }
 
@@ -317,10 +329,6 @@ function App() {
             padding: 0;
             min-height: 100vh;
             margin-left: 0;
-          }
-
-          .suggestions-section {
-            display: none;
           }
         }
 
