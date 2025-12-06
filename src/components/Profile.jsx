@@ -60,8 +60,8 @@ function Profile() {
                 text: `Check out ${profile.username}'s Instagram profile`,
                 url: profileUrl,
             })
-            .then(() => console.log('Successful share'))
-            .catch((error) => console.log('Error sharing:', error));
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
         } else {
             navigator.clipboard.writeText(profileUrl)
                 .then(() => alert('Profile link copied to clipboard!'))
@@ -493,14 +493,15 @@ function Profile() {
                     .profile-container {
                         padding: 12px;
                     }
-                    
+
                     .profile-image {
                         width: 100px;
                         height: 100px;
                     }
-                    
+
                     .profile-username {
                         font-size: 22px;
+                        text-align: center;
                     }
                     
                     .stat-number {
@@ -537,12 +538,16 @@ function Profile() {
                     .profile-container {
                         padding: 16px;
                     }
-                    
+
                     .profile-image {
                         width: 120px;
                         height: 120px;
                     }
-                    
+
+                    .profile-username {
+                        text-align: center;
+                    }
+
                     .profile-actions {
                         flex-direction: row;
                     }
@@ -562,6 +567,10 @@ function Profile() {
                     .profile-actions {
                         flex-direction: row;
                         justify-content: flex-start;
+                    }
+
+                    .profile-username {
+                        text-align: center;
                     }
                     
                     .edit-profile-btn,
@@ -859,18 +868,18 @@ function Profile() {
                         {/* Profile Header */}
                         <div className="profile-header">
                             <div className="profile-image-container">
-                                <img 
-                                    className="profile-image" 
-                                    src={profile.profile_pic} 
-                                    alt={`${profile.username}'s profile`} 
+                                <img
+                                    className="profile-image"
+                                    src={profile.profile_pic}
+                                    alt={`${profile.username}'s profile`}
                                 />
                             </div>
-                            
+
                             <div className="profile-info">
                                 {/* UPDATED: Username above stats */}
                                 <div className="profile-top-section">
                                     <h1 className="profile-username">{profile.username}</h1>
-                                    
+
                                     <div className="profile-stats">
                                         <div className="stat-item">
                                             <span className="stat-number">1.1B</span>
@@ -880,8 +889,8 @@ function Profile() {
                                             <span className="stat-number">1.1B</span>
                                             <span className="stat-label">Followers</span>
                                         </div>
-                                        <div 
-                                            className="stat-item" 
+                                        <div
+                                            className="stat-item"
                                             onClick={() => setShowFollowingList(!showFollowingList)}
                                         >
                                             <span className="stat-number">{followers.length}</span>
@@ -889,17 +898,17 @@ function Profile() {
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 {/* UPDATED: Action buttons in a row */}
                                 <div className="profile-actions">
-                                    <button 
+                                    <button
                                         className="edit-profile-btn"
                                         onClick={() => setIsEditing(!isEditing)}
                                     >
                                         {isEditing ? 'Cancel Edit' : 'Edit Profile'}
                                     </button>
-                                    
-                                    <button 
+
+                                    <button
                                         className="share-profile-btn"
                                         onClick={handleShareProfile}
                                     >
@@ -924,7 +933,7 @@ function Profile() {
                                         placeholder="Enter your username"
                                     />
                                 </div>
-                                
+
                                 <div className="form-group">
                                     <label className="form-label">Profile Picture URL</label>
                                     <input
@@ -936,15 +945,15 @@ function Profile() {
                                         placeholder="Enter profile picture URL"
                                     />
                                 </div>
-                                
+
                                 <div className="form-actions">
-                                    <button 
+                                    <button
                                         className="save-btn"
                                         onClick={handleUpdate}
                                     >
                                         Save Changes
                                     </button>
-                                    <button 
+                                    <button
                                         className="cancel-btn"
                                         onClick={handleCancelEdit}
                                     >
@@ -959,7 +968,7 @@ function Profile() {
                             <div className="following-list">
                                 <div className="list-header">
                                     <h2 className="list-title">People You Follow</h2>
-                                    <button 
+                                    <button
                                         className="close-btn"
                                         onClick={() => setShowFollowingList(false)}
                                         aria-label="Close following list"
@@ -967,21 +976,21 @@ function Profile() {
                                         ×
                                     </button>
                                 </div>
-                                
+
                                 <div className="followers-grid">
                                     {followers.length > 0 ? (
                                         followers.map(follower => (
                                             <div key={follower.id} className="follower-card">
-                                                <img 
-                                                    className="follower-image" 
-                                                    src={follower.profile_pic} 
-                                                    alt={`${follower.username}'s profile`} 
+                                                <img
+                                                    className="follower-image"
+                                                    src={follower.profile_pic}
+                                                    alt={`${follower.username}'s profile`}
                                                 />
                                                 <div className="follower-info">
                                                     <h3 className="follower-username">{follower.username}</h3>
                                                     <p className="follower-bio">Instagram user</p>
                                                 </div>
-                                                <button 
+                                                <button
                                                     className="unfollow-btn"
                                                     onClick={() => handleUnFollow(follower.id)}
                                                     aria-label={`Unfollow ${follower.username}`}
