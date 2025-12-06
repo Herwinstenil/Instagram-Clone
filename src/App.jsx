@@ -16,7 +16,7 @@ function App() {
       const width = window.innerWidth;
       setIsMobile(width < 768);
       setIsTablet(width >= 768 && width < 1024);
-      
+
       // Close sidebar on resize to larger screens
       if (width >= 768 && sidebarOpen) {
         setSidebarOpen(false);
@@ -25,7 +25,7 @@ function App() {
 
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
-    
+
     return () => window.removeEventListener('resize', checkScreenSize);
   }, [sidebarOpen]);
 
@@ -72,9 +72,14 @@ function App() {
           background: #f8f9fa;
         }
 
-        .mobile-toggle-btn i {
+        .mobile-toggle-btn i,
+        .mobile-toggle-btn svg {
           font-size: 20px;
           color: #262626;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
 
         /* Sidebar Overlay for Mobile */
@@ -567,7 +572,7 @@ function App() {
 
       {/* Mobile Toggle Button */}
       {(isMobile || isTablet) && (
-        <button 
+        <button
           className="mobile-toggle-btn"
           onClick={toggleSidebar}
           aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}
@@ -578,7 +583,7 @@ function App() {
 
       {/* Sidebar Overlay for Mobile */}
       {(isMobile || isTablet) && sidebarOpen && (
-        <div 
+        <div
           className={`sidebar-overlay ${sidebarOpen ? 'active' : ''}`}
           onClick={toggleSidebar}
           aria-label="Close sidebar"
@@ -590,7 +595,7 @@ function App() {
       <div className="app-container">
         {/* Sidebar Section */}
         <div className={`sidebar-section w-20 ${sidebarOpen ? 'open' : ''}`}>
-          <Sidebar 
+          <Sidebar
             setShowSearch={setShowSearch}
             isMobile={isMobile || isTablet}
             sidebarOpen={sidebarOpen}
