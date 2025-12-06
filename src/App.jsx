@@ -15,10 +15,10 @@ function App() {
     const checkScreenSize = () => {
       const width = window.innerWidth;
       setIsMobile(width < 768);
-      setIsTablet(width >= 768 && width < 1024);
+      setIsTablet(width >= 769 && width < 1024);
 
       // Close sidebar on resize to larger screens
-      if (width >= 768 && sidebarOpen) {
+      if (width >= 769 && sidebarOpen) {
         setSidebarOpen(false);
       }
     };
@@ -286,15 +286,15 @@ function App() {
         }
 
         /* 768px - Tablets (Portrait) */
-        @media (min-width: 426px) and (max-width: 768px) {
+        @media (min-width: 426px) and (max-width: 767px) {
           .app-container {
             flex-direction: row;
           }
-          
+
           .mobile-toggle-btn {
             display: flex;
           }
-          
+
           .sidebar-section {
             position: fixed;
             left: -100%;
@@ -307,18 +307,54 @@ function App() {
             transition: left 0.3s ease;
             height: 100vh;
           }
-          
+
           .sidebar-section.open {
             left: 0;
           }
-          
+
           .feed-section {
             width: 100% !important;
             padding: 0;
             min-height: 100vh;
             margin-left: 0;
           }
-          
+
+          .suggestions-section {
+            display: none;
+          }
+        }
+
+        /* 768px - Specific breakpoint to keep sidebar visible */
+        @media (min-width: 768px) and (max-width: 768px) {
+          .app-container {
+            flex-direction: row;
+            padding-left: 240px;
+          }
+
+          .mobile-toggle-btn {
+            display: none;
+          }
+
+          .sidebar-section {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 240px;
+            background: #ffffff;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+            z-index: 100;
+            height: 100vh;
+          }
+
+          .feed-section {
+            width: 100% !important;
+            padding: 32px 24px;
+            min-height: 100vh;
+            max-width: 630px;
+            margin: 0 auto;
+          }
+
           .suggestions-section {
             display: none;
           }
