@@ -51,7 +51,7 @@ function App() {
 
         /* Mobile Toggle Button */
         .mobile-toggle-btn {
-          position: fixed;
+          position: absolute;
           top: 16px;
           left: 16px;
           width: 40px;
