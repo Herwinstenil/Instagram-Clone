@@ -8,7 +8,7 @@ function Stories() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch('http://localhost:3000/story')
+    fetch('/api/story')
       .then(data => data.json())
       .then(data => {
         setStories(data);
