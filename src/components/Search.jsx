@@ -12,7 +12,7 @@ function Search({ setShowSearch }) {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch('http://localhost:3000/followers')
+        fetch('/api/followers')
             .then(data => data.json())
             .then(data => {
                 setFollowers(data);
@@ -102,14 +102,14 @@ function Search({ setShowSearch }) {
 
     const handleFollow = async (id, username, profile_pic) => {
         setIsLoading(true);
-        axios.post('http://localhost:3000/followers', { 
+        axios.post('/api/followers', { 
             "id": id, 
             "username": username, 
             "profile_pic": profile_pic 
         })
         .then(() => {
             // Re-fetch followers after follow
-            fetch('http://localhost:3000/followers')
+            fetch('/api/followers')
                 .then(data => data.json())
                 .then(data => {
                     setFollowers(data);
