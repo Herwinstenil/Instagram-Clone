@@ -12,14 +12,12 @@
   },
   "dependencies": {
     "axios": "^1.13.1",
-    "express": "^5.2.1",
-    "json": "^11.0.0",
+    "express": "^4.18.2",
     "json-server": "^1.0.0-beta.3",
     "lucide-react": "^0.545.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.4",
-    "server": "^1.0.42"
+    "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
