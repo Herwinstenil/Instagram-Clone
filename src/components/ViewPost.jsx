@@ -12,7 +12,7 @@ function ViewPost() {
         setIsLoading(true);
         setError(null);
         
-        fetch(`http://localhost:3000/posts/${id}`)
+        fetch(`/api/posts/${id}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Post not found');
