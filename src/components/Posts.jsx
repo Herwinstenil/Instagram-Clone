@@ -7,7 +7,7 @@ function Posts() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/posts')
+    fetch('/api/posts')
       .then((data) => data.json())
       .then((data => setPosts(data)))
       .catch(err => console.log('Error fetching posts:', err))
@@ -24,7 +24,7 @@ function Posts() {
     setPosts(updatedPosts);
 
     try {
-      await fetch(`http://localhost:3000/posts/${postId}`, {
+      await fetch(`/api/posts/${postId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ function Posts() {
     }));
 
     try {
-      await fetch(`http://localhost:3000/posts/${postId}`, {
+      await fetch(`/api/posts/${postId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
