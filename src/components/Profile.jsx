@@ -10,11 +10,11 @@ function Profile() {
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/profile')
+        axios.get('/api/profile')
             .then(data => setProfile(data.data))
             .catch(err => console.log(err))
 
-        axios.get('http://localhost:3000/followers')
+        axios.get('/api/followers')
             .then(data => setFollowers(data.data))
             .catch(err => console.log(err))
     }, [Unfollowed])
@@ -27,7 +27,7 @@ function Profile() {
     }
 
     const handleUpdate = async () => {
-        axios.put('http://localhost:3000/profile', profile)
+        axios.put('/api/profile', profile)
             .then(() => {
                 console.log("Updated");
                 setIsEditing(false);
@@ -37,7 +37,7 @@ function Profile() {
 
     const handleUnFollow = async (id) => {
         if (window.confirm("Are you sure you want to unfollow this user?")) {
-            axios.delete(`http://localhost:3000/followers/${id}`)
+            axios.delete(`/api/followers/${id}`)
                 .then(() => {
                     setUnfollowed(!Unfollowed);
                 })
@@ -46,7 +46,7 @@ function Profile() {
     }
 
     const handleCancelEdit = () => {
-        axios.get('http://localhost:3000/profile')
+        axios.get('/api/profile')
             .then(data => setProfile(data.data))
             .catch(err => console.log(err))
         setIsEditing(false);
