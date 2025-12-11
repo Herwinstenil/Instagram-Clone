@@ -17,7 +17,7 @@ function Suggestions() {
     setIsLoading({ profile: true, suggestions: true, followers: true });
 
     // Fetch profile
-    fetch('http://localhost:3000/profile')
+    fetch('/api/profile')
       .then(data => data.json())
       .then(data => {
         setProfile(data);
@@ -29,7 +29,7 @@ function Suggestions() {
       });
 
     // Fetch suggestions
-    fetch('http://localhost:3000/suggestions')
+    fetch('/api/suggestions')
       .then(data => data.json())
       .then(data => {
         setSuggestions(data);
@@ -41,7 +41,7 @@ function Suggestions() {
       });
 
     // Fetch followers
-    fetch('http://localhost:3000/followers')
+    fetch('/api/followers')
       .then(data => data.json())
       .then(data => {
         setFollowers(data);
@@ -55,14 +55,14 @@ function Suggestions() {
 
   const handleFollow = async (id, username, profile_pic) => {
     try {
-      await axios.post('http://localhost:3000/followers', {
+      await axios.post('/api/followers', {
         id: id,
         username: username,
         profile_pic: profile_pic
       });
       
       // Re-fetch followers after follow
-      const response = await fetch('http://localhost:3000/followers');
+      const response = await fetch('/api/followers');
       const data = await response.json();
       setFollowers(data);
     } catch (err) {
