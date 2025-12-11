@@ -18,7 +18,7 @@ function ViewStory() {
         setIsLoading(true);
         setError(null);
         
-        fetch(`http://localhost:3000/story/${id}`)
+        fetch(`/api/story/${id}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Story not found');
